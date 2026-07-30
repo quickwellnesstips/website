@@ -1,0 +1,5 @@
+<!--
+  Tells GitHub Pages to serve this directory as static files
+  without running them through Jekyll (which would mangle the
+  underscore-prefixed file names and the raw CSS variables).
+-->

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post template — Quick Wellness Tips</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%233b6b4d' stroke-width='8'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%233b6b4d'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a href="/" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Quick Wellness Tips</span>
+      </a>
+      <nav class="topnav-links" aria-label="Primary">
+        <a href="/#posts">Posts</a>
+        <a href="/#protocol">Protocol</a>
+        <a href="/#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post">
+      <header class="post-header">
+        <p class="eyebrow">Energy · 4 min read</p>
+        <h1 class="post-h1">Why you're tired all the time (and it's not sleep)</h1>
+        <p class="post-deck">
+          If you're sleeping 7+ hours and still dragging, the problem is usually one
+          of these four things. None of them are what the supplement industry is
+          selling you.
+        </p>
+        <p class="post-byline">By Ray · Updated this week</p>
+      </header>
+
+      <p class="post-lede">
+        Most people who come to me for "energy issues" are already sleeping 7+ hours
+        a night and still dragging. The supplement industry is happy to sell them
+        ashwagandha, rhodiola, and B-vitamin complexes. None of it works. The actual
+        reasons you're tired are boring, structural, and fixable in a week.
+      </p>
+
+      <h2>The four usual suspects</h2>
+      <p>When I audit someone's energy, the answer is almost always one of these:</p>
+      <ol>
+        <li><strong>They're under-eating protein.</strong> The most common. Most people eat 0.6-0.8g/kg
+          of protein per day. The energy floor is 1.2g/kg. The 30-50g daily gap shows up
+          as 3pm crashes.</li>
+        <li><strong>They drink caffeine too late.</strong> After 2pm, caffeine's half-life
+          (5-6 hours) means you're still processing it at midnight. Your sleep gets
+          90 minutes shorter even if you don't feel it.</li>
+        <li><strong>They don't get morning sunlight.</strong> Bright outdoor light in the first
+          30-60 minutes after waking sets your circadian rhythm. Without it, your
+          melatonin ramps 2-3 hours late and your sleep quality drops 15-20%.</li>
+        <li><strong>They over-caffeinate to compensate for the first three.</strong> This is
+          the trap. Each of the first three problems is "solved" with coffee, which
+          then makes all three worse.</li>
+      </ol>
+
+      <h2>The fix (one week)</h2>
+      <p>You don't need supplements. You need to remove the caffeine, hit the
+        morning light, and add 30g of protein at breakfast. Here's the day-by-day:</p>
+
+      <p><strong>Day 1-2:</strong> Move your last coffee to noon. Notice how tired you
+        get at 3pm. (This is the un-masking. The crash was always there — coffee
+        was just hiding it.)</p>
+
+      <p><strong>Day 3-4:</strong> Add 10 minutes of morning sunlight. Phone outside,
+        no sunglasses, before 9am if possible. (Bonus: 5 minutes of walking in it.)</p>
+
+      <p><strong>Day 5-6:</strong> Add 30g protein to breakfast. Eggs, Greek yogurt,
+        cottage cheese, or a scoop of protein powder. Whatever you'll actually eat.</p>
+
+      <p><strong>Day 7:</strong> Compare to last Monday. If you're not noticeably
+        better, something else is going on — see a doctor and ask for a blood panel
+        (ferritin, vitamin D, thyroid, B12).</p>
+
+      <h2>The bottom line</h2>
+      <p>Energy isn't a supplement problem. It's a systems problem. Fix the inputs
+        (sleep, light, food, caffeine timing) and the output (energy) follows. The
+        supplement industry makes money when you believe the opposite.</p>
+
+      <p class="post-cta">
+        Want the full protocol — daily checklist, shopping list, supplement
+        schedule — as a 14-page PDF?
+        <a href="/#protocol">Get the 7-Day Energy Protocol — $9.99</a>.
+      </p>
+
+      <p class="post-back">
+        <a href="/#posts">← Back to all posts</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© 2026 Quick Wellness Tips</span>
+      <span class="footer-links">
+        <a href="/#posts">Posts</a>
+        <span aria-hidden="true">·</span>
+        <a href="/#protocol">Protocol</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.instagram.com/quickwellnesstips/" target="_blank" rel="noopener">Instagram</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:hello@quickwellnesstips.com">Email</a>
+      </span>
+    </div>
+    <p class="footer-disclosure">
+      This site contains affiliate links. We earn a small commission at no
+      extra cost to you. Posts are not medical advice — talk to a doctor
+      before changing anything health-related.
+    </p>
+  </footer>
+
+  <style>
+    /* Post-page styles (kept inline so the single styles.css stays
+       home-only and posts load fast without a global sheet roundtrip) */
+    .post { padding: 64px 0 24px; }
+    .post-header { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+    .post-h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.15; margin: 0 0 16px; }
+    .post-deck { font-size: 19px; line-height: 1.5; color: var(--ink-2); margin: 0 0 16px; }
+    .post-byline { font-size: 13px; color: var(--ink-3); margin: 0; }
+    .post-lede { font-size: 19px; line-height: 1.55; color: var(--ink); font-weight: 500; margin: 0 0 32px; }
+    .post h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25; margin: 40px 0 12px; }
+    .post p { margin: 0 0 16px; }
+    .post ol, .post ul { margin: 0 0 20px; padding-left: 22px; }
+    .post li { margin: 0 0 10px; }
+    .post strong { font-weight: 600; color: var(--ink); }
+    .post-cta {
+      margin-top: 40px; padding: 20px 24px; background: var(--accent-soft);
+      border-radius: var(--radius); font-size: 17px; color: var(--ink);
+    }
+    .post-back { margin-top: 32px; font-size: 14px; color: var(--ink-3); }
+  </style>
+</body>
+</html>

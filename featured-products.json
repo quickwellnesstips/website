@@ -1,0 +1,42 @@
+[
+  {
+    "source": "TikTok Shop",
+    "title": "(replace with actual product name)",
+    "blurb": "(one-line description: who it's for + when you'd grab it)",
+    "image": "bundle/product-placeholder-1.jpeg",
+    "url": "https://www.tiktok.com/t/ZP9BD5fRqSo1V-hXpvi/",
+    "_note": "TikTok product 1 of 5 - replace title/blurb/image as needed"
+  },
+  {
+    "source": "TikTok Shop",
+    "title": "(replace with actual product name)",
+    "blurb": "(one-line description)",
+    "image": "bundle/product-placeholder-2.jpeg",
+    "url": "https://www.tiktok.com/t/ZP9BD59tBdSJ7-1pljE/",
+    "_note": "TikTok product 2"
+  },
+  {
+    "source": "TikTok Shop",
+    "title": "(replace with actual product name)",
+    "blurb": "(one-line description)",
+    "image": "bundle/product-placeholder-3.jpeg",
+    "url": "https://www.tiktok.com/t/ZP9BD5xpjdJ9o-pzwCI/",
+    "_note": "TikTok product 3"
+  },
+  {
+    "source": "TikTok Shop",
+    "title": "(replace with actual product name)",
+    "blurb": "(one-line description)",
+    "image": "bundle/product-placeholder-4.jpeg",
+    "url": "https://www.tiktok.com/t/ZP9BD54YdMLh3-mjkR8/",
+    "_note": "TikTok product 4"
+  },
+  {
+    "source": "TikTok Shop",
+    "title": "(replace with actual product name)",
+    "blurb": "(one-line description)",
+    "image": "bundle/product-placeholder-5.jpeg",
+    "url": "https://www.tiktok.com/t/ZP9BD54uDmFPK-v8VAc/",
+    "_note": "TikTok product 5"
+  }
+]

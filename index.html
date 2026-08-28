@@ -1,244 +1,715 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick Wellness Tips — Simple, evidence-based health advice that actually works.</title>
-  <meta name="description" content="Quick Wellness Tips is a no-fluff wellness blog: short, evidence-based protocols on energy, sleep, gut, and stress. One main digital product. Affiliate picks vetted by a real human." />
+  <meta charset="UTF-8">
+  <title>QuickWellnessTips, a library of small, practical guides</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A focused library of 10 small wellness books. Practical guides for the routines that already shape your day. Sample chapters shown here. Full library available for purchase.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:        #ffffff;
+      --ink:          #0a0a0a;
+      --ink-soft:     #2a2a2a;
+      --ink-mid:      #5a5a5a;
+      --ink-muted:    #999999;
+      --rule:         #ececec;
+      --rule-strong:  #c8c8c8;
+      --accent:       #24A3BE;
+      --accent-deep:  #1b8499;
+      --accent-tint:  #e6f4f7;
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Quick Wellness Tips" />
-  <meta property="og:description" content="Simple, evidence-based health advice that actually works." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://quickwellnesstips.com/" />
-  <meta property="og:image" content="https://quickwellnesstips.com/assets/og.png" />
+      --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    }
 
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Quick Wellness Tips" />
-  <meta name="twitter:description" content="Simple, evidence-based health advice that actually works." />
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
 
-  <!-- Preconnect to font CDN -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 36px; }
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+    /* ----- TOP BAR ----- */
+    .topbar {
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0;
+    }
+    .brand-mark { display: flex; align-items: center; gap: 12px; }
+    .brand-mark img {
+      width: 36px; height: 36px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
+    }
+    .brand-mark .name {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+    }
+    .nav {
+      display: flex; gap: 28px; align-items: center;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--ink-mid);
+    }
+    .nav a:hover { color: var(--ink); }
+    .nav .pill {
+      display: inline-flex; align-items: center;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 600; font-size: 13.5px;
+      border-radius: 999px;
+      transition: background .2s ease;
+    }
+    .nav .pill:hover { background: var(--accent-deep); }
 
-  <!-- Favicon (one-line SVG, light green dot in a sage ring) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%233b6b4d' stroke-width='8'/%3E%3Ccircle cx='50' cy='50' r='18' fill='%233b6b4d'/%3E%3C/svg%3E" />
+    /* ============================================================
+       TOP: 2-column hero (library LEFT, text-only offer RIGHT)
+       ============================================================ */
+    .hero {
+      padding: 56px 0 64px;
+      background: var(--paper);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    /* ---- LEFT: library showcase ---- */
+    .lib-block .lib-header {
+      margin-bottom: 28px;
+    }
+    .lib-block .lib-header h1 {
+      font-family: var(--sans);
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.022em;
+      color: var(--ink);
+      font-weight: 700;
+      margin: 0 0 10px 0;
+    }
+    .lib-block .lib-header h1 em {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: -0.015em;
+    }
+    /* (no deck line — was a "click any cover" sample instruction, removed) */
+
+    .bookshelf {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px 18px;
+    }
+    .book-tile {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .3s cubic-bezier(.2,.7,.2,1);
+    }
+    .book-tile:hover { transform: translateY(-4px); }
+    .book-tile .cover {
+      width: 100%;
+      max-width: 140px;
+      aspect-ratio: 2/3;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.9) inset,
+        0 8px 20px -6px rgba(0,0,0,0.18),
+        0 18px 36px -10px rgba(0,0,0,0.22);
+      transition: box-shadow .25s ease;
+    }
+    .book-tile:hover .cover {
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.9) inset,
+        0 12px 24px -6px rgba(0,0,0,0.20),
+        0 22px 44px -10px rgba(0,0,0,0.28);
+    }
+    .book-tile .cover img { width: 100%; height: 100%; object-fit: cover; }
+    .book-tile .cover-wrap { position: relative; }
+    .book-tile .seq {
+      position: absolute;
+      top: 6px; left: 6px;
+      width: 22px; height: 22px;
+      background: rgba(0,0,0,0.78);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 999px;
+      display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+    /* "Sample" tag — communicates to visitors this is a preview, not the
+       full book. Reinforces the buy-now CTA in the right column. */
+    .book-tile .sample-tag {
+      position: absolute;
+      top: 8px; right: 8px;
+      padding: 3px 8px;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 9.5px; font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+    }
+    .book-tile .meta { text-align: center; }
+    .book-tile .name {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-top: 2px;
+    }
+    .book-tile .blurb {
+      font-family: var(--sans);
+      font-size: 11.5px;
+      line-height: 1.4;
+      color: var(--ink-muted);
+      margin-top: 2px;
+      max-width: 160px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ---- RIGHT: text-only offer (no photo) ---- */
+    .buy-block { position: sticky; top: 92px; }
+    .offer {
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: 36px 32px 32px;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.9) inset,
+        0 12px 28px -10px rgba(0,0,0,0.10),
+        0 32px 64px -18px rgba(0,0,0,0.18);
+      position: relative;
+    }
+    .offer .eyebrow {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .offer h2 {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.4vw, 30px);
+      line-height: 1.15;
+      letter-spacing: -0.018em;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 14px 0;
+    }
+    .offer h2 em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .offer .blurb {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0 0 22px 0;
+    }
+    .offer .spec-list {
+      list-style: none;
+      padding: 16px 0;
+      margin: 0 0 22px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .offer .spec-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 8px 0;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      line-height: 1.4;
+      color: var(--ink-mid);
+    }
+    .offer .spec-list li::before {
+      content: "";
+      flex: 0 0 6px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      align-self: center;
+    }
+    .offer .spec-list li strong { color: var(--ink); font-weight: 600; }
+    .offer .price {
+      font-family: var(--serif);
+      font-size: clamp(38px, 4vw, 48px);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .offer .price-meta {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .offer .buy-btn {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--ink);
+      color: #ffffff;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 16px 22px;
+      border: 0; cursor: pointer;
+      border-radius: 999px;
+      transition: background .2s ease, transform .15s ease;
+      box-shadow: 0 8px 18px -6px rgba(0,0,0,0.30);
+    }
+    .offer .buy-btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+    .offer .bundles {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: 16px;
+      text-align: center;
+    }
+    .offer .bundles span { display: block; padding: 2px 0; }
+    .offer .bundles strong {
+      color: var(--ink-soft);
+      font-weight: 700;
+      font-family: var(--serif);
+      font-size: 13px;
+    }
+
+    /* ============================================================
+       FEATURED PRODUCTS (Amazon / TikTok Shop affiliate)
+       ============================================================ */
+    .featured-section {
+      padding: 80px 0;
+      background: #fafafa;
+    }
+    .section-head {
+      max-width: 720px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .section-eyebrow {
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--sans);
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.2;
+      letter-spacing: -0.022em;
+      color: var(--ink);
+      font-weight: 700;
+      margin: 0 0 12px 0;
+    }
+    .section-title em {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: -0.015em;
+    }
+    .section-deck {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .product-card {
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color .2s ease, transform .25s ease, box-shadow .25s ease;
+      display: flex; flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    .product-card:hover {
+      border-color: var(--rule-strong);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px -10px rgba(0,0,0,0.10);
+    }
+    .product-thumb {
+      aspect-ratio: 4/3;
+      background: #f5f5f5;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink-muted);
+      font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .product-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .product-thumb.empty {
+      background: linear-gradient(135deg, var(--accent-tint) 0%, #f0f7f9 100%);
+    }
+    .product-body { padding: 20px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .product-source {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .product-title {
+      font-family: var(--serif);
+      font-size: 19px; font-weight: 600; line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 10px 0;
+    }
+    .product-blurb {
+      font-family: var(--sans);
+      font-size: 13.5px; line-height: 1.55;
+      color: var(--ink-mid);
+      margin: 0 0 16px 0;
+      flex: 1;
+    }
+    .product-link {
+      font-family: var(--sans);
+      font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--accent);
+      display: inline-flex; align-items: center; gap: 6px;
+      border-top: 1px solid var(--rule);
+      padding-top: 14px;
+    }
+    .product-link::after { content: "→"; transition: transform .2s ease; }
+    .product-card:hover .product-link::after { transform: translateX(3px); }
+
+    .product-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      background: #ffffff;
+      border: 1px dashed var(--rule-strong);
+      border-radius: 14px;
+      color: var(--ink-muted);
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .product-empty code {
+      background: var(--paper);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: "SF Mono", Menlo, monospace;
+      font-size: 12.5px;
+      color: var(--accent-deep);
+    }
+
+    .disclosure {
+      max-width: 1100px;
+      margin: 28px auto 0;
+      padding: 14px 20px;
+      background: rgba(0,0,0,0.02);
+      border-left: 3px solid var(--rule);
+      border-radius: 0 8px 8px 0;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--ink-mid);
+    }
+    .disclosure strong { font-weight: 600; color: var(--ink); }
+    .disclosure a { color: var(--accent); border-bottom: 1px solid currentColor; }
+
+    /* ----- FOOTER ----- */
+    .footer {
+      padding: 36px 0;
+      background: #ffffff;
+      border-top: 1px solid var(--rule);
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--ink-muted);
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .footer a { color: var(--ink-mid); margin-left: 18px; }
+    .footer a:hover { color: var(--ink); }
+
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .buy-block { position: static; }
+      .bookshelf { grid-template-columns: repeat(3, 1fr); gap: 18px 14px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .hero { padding: 36px 0 48px; }
+      section { padding: 56px 0; }
+      .nav { gap: 16px; }
+      .nav .link { display: none; }
+    }
+
+    .buy-pill {
+      display: inline-flex; align-items: center;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #ffffff;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      font-weight: 600;
+      border-radius: 999px;
+      transition: background .2s ease;
+    }
+    .buy-pill:hover { background: var(--accent-deep); }
+  </style>
 </head>
 <body>
-  <!-- =========================
-       TOP NAV (sparse)
-       ========================= -->
-  <header class="topnav">
-    <div class="topnav-inner">
-      <a href="/" class="brand">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-text">Quick Wellness Tips</span>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand-mark" href="#top">
+        <img src="bundle/qwt-logo-200.png" alt="QuickWellnessTips">
+        <span class="name">QuickWellnessTips</span>
       </a>
-      <nav class="topnav-links" aria-label="Primary">
-        <a href="#posts">Posts</a>
-        <a href="#protocol">Protocol</a>
-        <a href="#about">About</a>
-      </nav>
+      <a class="buy-pill" href="#buy">Buy the Bundle &middot; $19.99</a>
     </div>
   </header>
 
-  <!-- =========================
-       HERO
-       ========================= -->
-  <main>
-    <section class="hero">
-      <p class="eyebrow">A no-fluff wellness blog</p>
-      <h1 class="hero-title">Small daily habits that<br />actually change&nbsp;things.</h1>
-      <p class="hero-sub">
-        Energy, sleep, gut, stress. Short, evidence-based protocols from one person who actually
-        tests them. No detox. No cleanses. No magic pills.
-      </p>
-      <div class="hero-cta">
-        <a href="#protocol" class="btn btn-primary">Get the 7-Day Protocol — $9.99</a>
-        <a href="#posts" class="btn btn-ghost">Read the posts</a>
+  <section id="top" class="hero">
+    <div class="wrap hero-grid">
+
+      <!-- LEFT: 10-book showcase (sample previews, not full PDFs) -->
+      <div class="lib-block" id="library">
+        <div class="lib-header">
+          <h1>Small books for the routines that <em>already</em> shape your day.</h1>
+        </div>
+        <div class="bookshelf" id="bookshelf"></div>
       </div>
-      <p class="hero-meta">PDF · 14 pages · Instant download · 30-day refund</p>
-    </section>
 
-    <!-- =========================
-       LATEST POSTS
-       ========================= -->
-    <section id="posts" class="section">
-      <header class="section-head">
-        <h2>Latest posts</h2>
-        <p class="section-sub">Short reads. Real evidence. No supplement-industry jargon.</p>
-      </header>
+      <!-- RIGHT: editorial-ad text-only offer -->
+      <div class="buy-block" id="buy">
+        <div class="offer">
+          <div class="eyebrow">The Library, all 10 books</div>
+          <h2>Ten books. <em>One download.</em></h2>
+          <p>Click any cover to read a sample chapter. The full library is one PDF download.</p>
+          <ul class="spec-list">
+            <li><strong>10 books.</strong> On wellness for your everyday routines.</li>
+            <li><strong>Sample chapters.</strong> Click any cover, no sign-up.</li>
+            <li><strong>One PDF download.</strong> Yours forever, no subscription.</li>
+          </ul>
 
-      <ul class="post-list">
-        <li class="post-card">
-          <a href="/posts/why-youre-tired-all-the-time.html" class="post-card-link">
-            <span class="post-tag">Energy</span>
-            <h3 class="post-title">Why you're tired all the time (and it's not sleep)</h3>
-            <p class="post-excerpt">
-              If you're sleeping 7+ hours and still dragging, the problem is usually one of these
-              four things. None of them are what the supplement industry is selling you.
-            </p>
-            <span class="post-meta">4 min read · Updated this week</span>
-          </a>
-        </li>
+          <div class="price" id="offer-price">$19.99</div>
+          <div class="price-meta" id="offer-price-meta">Single payment. Instant access.</div>
 
-        <li class="post-card">
-          <a href="/posts/5-morning-habits-that-fix-cortisol.html" class="post-card-link">
-            <span class="post-tag">Stress</span>
-            <h3 class="post-title">5 morning habits that fix your cortisol (without supplements)</h3>
-            <p class="post-excerpt">
-              The cortisol-fix industry is mostly nonsense. Here's what actually moves the needle
-              in the first 90 minutes of your day, ranked by impact.
-            </p>
-            <span class="post-meta">6 min read · Updated last week</span>
-          </a>
-        </li>
-
-        <li class="post-card">
-          <a href="/posts/how-to-read-a-supplement-label.html" class="post-card-link">
-            <span class="post-tag">Supplements</span>
-            <h3 class="post-title">How to read a supplement label without the BS</h3>
-            <p class="post-excerpt">
-              Proprietary blends, fillers, "complex" — here's a 60-second field guide to
-              figuring out what you're actually buying.
-            </p>
-            <span class="post-meta">5 min read</span>
-          </a>
-        </li>
-
-        <li class="post-card">
-          <a href="/posts/the-hydration-mistake.html" class="post-card-link">
-            <span class="post-tag">Hydration</span>
-            <h3 class="post-title">The hydration mistake 90% of people make</h3>
-            <p class="post-excerpt">
-              You're not dehydrated because you don't drink enough water. You're dehydrated
-              because of WHEN and HOW you drink it.
-            </p>
-            <span class="post-meta">3 min read</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- =========================
-       HERO PRODUCT (the protocol)
-       ========================= -->
-    <section id="protocol" class="section protocol">
-      <div class="protocol-card">
-        <p class="eyebrow eyebrow-on-color">The flagship download</p>
-        <h2 class="protocol-title">The Energy Protocol:<br />7 days to better mornings.</h2>
-        <p class="protocol-sub">
-          A 14-page PDF that walks through the exact protocol from my most-saved IG post.
-          One change per day. A daily checklist. A shopping list. A supplement schedule.
-          Built for people who have tried everything and want one thing that works.
-        </p>
-
-        <ul class="protocol-list">
-          <li>✓ 7 days, one change per day, ≤20 minutes each</li>
-          <li>✓ Daily checklist (PDF + printable)</li>
-          <li>✓ Shopping list with budget tiers ($40 / $100 / $200)</li>
-          <li>✓ Supplement schedule with exact dosages</li>
-          <li>✓ What to do when it doesn't work (week 2 troubleshooting)</li>
-        </ul>
-
-        <div class="protocol-cta-row">
-          <a href="https://www.etsy.com/listing/XXXXX" class="btn btn-primary btn-lg">Get the PDF — $9.99</a>
-          <span class="protocol-money-back">30-day refund · no questions</span>
+          <a class="buy-btn" id="offer-btn" href="#" target="_blank" rel="noopener">Buy the Bundle &rarr;</a>
+          <div class="bundles" id="offer-bundles"></div>
         </div>
       </div>
-    </section>
-
-    <!-- =========================
-       AFFILIATE SIDEBAR (the supplies I use)
-       ========================= -->
-    <section class="section">
-      <header class="section-head">
-        <h2>The supplies I actually use</h2>
-        <p class="section-sub">No affiliate gimmicks. Just the products I'd buy anyway, with links.</p>
-      </header>
-
-      <ul class="affiliate-list">
-        <li class="affiliate-card">
-          <a href="#affiliate-electrolytes" class="affiliate-link">
-            <span class="affiliate-name">LMNT Electrolyte Powder</span>
-            <span class="affiliate-tag">Hydration</span>
-            <span class="affiliate-arrow">→</span>
-          </a>
-        </li>
-        <li class="affiliate-card">
-          <a href="#affiliate-morning" class="affiliate-link">
-            <span class="affiliate-name">Morning Sunlight Lamp (Verilux)</span>
-            <span class="affiliate-tag">Circadian</span>
-            <span class="affiliate-arrow">→</span>
-          </a>
-        </li>
-        <li class="affiliate-card">
-          <a href="#affiliate-magnesium" class="affiliate-link">
-            <span class="affiliate-name">Pure Encapsulations Magnesium Glycinate</span>
-            <span class="affiliate-tag">Sleep</span>
-            <span class="affiliate-arrow">→</span>
-          </a>
-        </li>
-        <li class="affiliate-card">
-          <a href="#affiliate-protein" class="affiliate-link">
-            <span class="affiliate-name">Momentous Collagen Peptides</span>
-            <span class="affiliate-tag">Recovery</span>
-            <span class="affiliate-arrow">→</span>
-          </a>
-        </li>
-      </ul>
-      <p class="affiliate-disclosure">
-        Affiliate disclosure: links marked with → go to Amazon / Thrive Market / brand sites.
-        We earn a small commission at no extra cost to you. Products are vetted — we
-        only list things we'd buy with our own money.
-      </p>
-    </section>
-
-    <!-- =========================
-       ABOUT (Ray's voice)
-       ========================= -->
-    <section id="about" class="section about">
-      <h2>About</h2>
-      <p>
-        Quick Wellness Tips is a one-person project. No team, no investors, no ad
-        budget. The advice comes from one place: I test protocols on myself,
-        read the studies, and write up what actually worked.
-      </p>
-      <p>
-        I don't sell supplements. I don't run coaching. The only paid product
-        is the <a href="#protocol">7-Day Energy Protocol</a> PDF — and even that
-        has a 30-day refund. If it doesn't help, you keep the money.
-      </p>
-      <p class="about-sig">— Ray</p>
-    </section>
-  </main>
-
-  <!-- =========================
-       FOOTER (minimal)
-       ========================= -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <span>© 2026 Quick Wellness Tips</span>
-      <span class="footer-links">
-        <a href="#posts">Posts</a>
-        <span aria-hidden="true">·</span>
-        <a href="#protocol">Protocol</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://www.instagram.com/quickwellnesstips/" target="_blank" rel="noopener">Instagram</a>
-        <span aria-hidden="true">·</span>
-        <a href="mailto:hello@quickwellnesstips.com">Email</a>
-      </span>
     </div>
-    <p class="footer-disclosure">
-      This site contains affiliate links. We earn a small commission at no
-      extra cost to you. Posts are not medical advice — talk to a doctor
-      before changing anything health-related.
-    </p>
+  </section>
+
+  <section id="featured" class="featured-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">Featured</div>
+        <h2 class="section-title">Things <em>readers actually use</em>.</h2>
+        <p class="section-deck">A curated shelf of physical things the books mention. When you buy through these links, we earn a small commission at no cost to you.</p>
+      </div>
+
+      <div class="product-grid" id="product-grid"></div>
+
+      <div class="disclosure">
+        <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and other affiliate programs. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>QuickWellnessTips, a library of small practical guides.</div>
+      <div>
+        <a href="#library">Library</a>
+        <a href="#buy">Buy</a>
+        <a href="#featured">Featured</a>
+        <a href="disclosure.html">Disclosure</a>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    /* =============================================================
+       LEFT: 10-book showcase — SAMPLE previews (clicking goes to
+       sample.html?slug=<slug>, NOT to the full PDF)
+       ============================================================= */
+    (function () {
+      var books = [
+        {n: '01', slug: 'reset-your-body',
+         title: 'Reset Your Body',
+         blurb: 'An 11-week practice for strength + movement.'},
+        {n: '02', slug: 'build-your-discipline',
+         title: 'Build Your Discipline',
+         blurb: 'Habits that survive a bad week, not just a good one.'},
+        {n: '03', slug: 'calm-your-mind',
+         title: 'Calm Your Mind',
+         blurb: 'Notice anxious thoughts and return to the next breath.'},
+        {n: '04', slug: 'steady-your-day',
+         title: 'Steady Your Day',
+         blurb: 'Small routines for the parts of your day that decide everything.'},
+        {n: '05', slug: 'heal-naturally',
+         title: 'Heal Naturally',
+         blurb: 'Working with fear, breath, and the body is part of the system.'},
+        {n: '06', slug: 'sleep-like-you-mean-it',
+         title: 'Sleep Like You Mean It',
+         blurb: 'Stop forcing sleep. Build pressure, anchor your wake time.'},
+        {n: '07', slug: 'eat-without-thinking-about-it',
+         title: 'Eat Without Thinking About It',
+         blurb: 'Freedom from diet culture. Eat with your body.'},
+        {n: '08', slug: 'money-without-the-drama',
+         title: 'Money, Without the Drama',
+         blurb: 'Calm decisions with your money. Tiny actions, no ceremony.'},
+        {n: '09', slug: 'talk-so-people-listen',
+         title: 'Talk So People Listen',
+         blurb: 'A hard-conversation map. Timing, ownership, repair.'},
+        {n: '10', slug: 'build-real-confidence',
+         title: 'Build Real Confidence',
+         blurb: 'A skill, not a mood. Build evidence through micro-competence.'},
+      ];
+      var grid = document.getElementById('bookshelf');
+      grid.innerHTML = books.map(function (b) {
+        return [
+          '<a class="book-tile" href="sample.html?slug=' + esc(b.slug) + '" aria-label="Read sample of ' + esc(b.title) + '">',
+            '<div class="cover-wrap">',
+              '<div class="cover"><img src="bundle/' + b.slug + '-cover.jpeg" alt="' + esc(b.title) + '"></div>',
+              '<div class="seq">' + b.n + '</div>',
+              '<div class="sample-tag">Sample</div>',
+            '</div>',
+            '<div class="meta">',
+              '<div class="name">' + esc(b.title) + '</div>',
+              '<div class="blurb">' + esc(b.blurb) + '</div>',
+            '</div>',
+          '</a>'
+        ].join('');
+      }).join('');
+    })();
+
+    /* =============================================================
+       RIGHT: editorial offer (text only, no photo)
+       Pulled from buy-now.json
+       ============================================================= */
+    (function () {
+      fetch('buy-now.json', {cache: 'no-store'})
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (cfg) {
+          if (!cfg) return;
+          if (cfg.price)        document.getElementById('offer-price').textContent = cfg.price;
+          if (cfg.subtitle)     document.getElementById('offer-price-meta').textContent = cfg.subtitle;
+          if (cfg.blurb)       document.getElementById('offer-blurb').textContent = cfg.blurb;
+          if (cfg.beacons_url) document.getElementById('offer-btn').href = cfg.beacons_url;
+          if (cfg.bundles_to_offer && cfg.bundles_to_offer.length) {
+            document.getElementById('offer-bundles').innerHTML =
+              cfg.bundles_to_offer.map(function (b) {
+                var parts = b.split(' ');
+                var price = parts.shift();
+                return '<span><strong>' + esc(price) + '</strong> ' + esc(parts.join(' ')) + '</span>';
+              }).join('');
+          }
+        });
+    })();
+
+    /* =============================================================
+       BELOW: Featured products (populate from featured-products.json)
+       ============================================================= */
+    (function () {
+      var grid = document.getElementById('product-grid');
+      fetch('featured-products.json', {cache: 'no-store'})
+        .then(function (r) { return r.ok ? r.json() : []; })
+        .then(render)
+        .catch(function () { render([]); });
+
+      function render(items) {
+        if (!items || !items.length) {
+          grid.innerHTML = [
+            '<div class="product-empty">',
+              'No products yet. Add items to <code>featured-products.json</code> in the site root, then refresh.',
+            '</div>'
+          ].join('');
+          return;
+        }
+        grid.innerHTML = items.map(function (it) {
+          var thumb = it.image
+            ? '<div class="product-thumb"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '"></div>'
+            : '<div class="product-thumb empty">No Image</div>';
+          return [
+            '<a class="product-card" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
+              thumb,
+              '<div class="product-body">',
+                '<div class="product-source">' + esc(it.source || 'Pick') + '</div>',
+                '<h3 class="product-title">' + esc(it.title || 'Untitled') + '</h3>',
+                '<p class="product-blurb">' + esc(it.blurb || '') + '</p>',
+                '<span class="product-link">View on ' + esc(it.source || 'Amazon') + '</span>',
+              '</div>',
+            '</a>'
+          ].join('');
+        }).join('');
+      }
+    })();
+
+    function esc(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+  </script>
 </body>
 </html>

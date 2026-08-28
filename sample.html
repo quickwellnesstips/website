@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title id="page-title">Sample Chapter — QuickWellnessTips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sample chapter from the QuickWellnessTips Library. Practical guides for the routines that already shape your day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper:      #ffffff;
+      --ink:        #0a0a0a;
+      --ink-soft:   #2a2a2a;
+      --ink-mid:    #5a5a5a;
+      --ink-muted:  #8a8a8a;
+      --rule:       #ececec;
+      --rule-strong:#c8c8c8;
+      --accent:     #24A3BE;
+      --accent-deep:#1b8499;
+      --accent-tint:#e6f4f7;
+      --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; background: var(--paper); color: var(--ink);
+      font-family: var(--sans); font-size: 16px; line-height: 1.7;
+      -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+
+    /* Topbar = just logo (one-page site has no nav menu) */
+    .topbar {
+      border-bottom: 1px solid var(--rule);
+      padding: 18px 0;
+      margin-bottom: 56px;
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand-mark { display: flex; align-items: center; gap: 12px; }
+    .brand-mark img {
+      width: 32px; height: 32px;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.08));
+    }
+    .brand-mark .name {
+      font-family: var(--serif);
+      font-size: 16px; font-weight: 600;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+    }
+    .brand-mark .name a { color: inherit; border: 0; }
+    .topbar .back {
+      font-family: var(--sans);
+      font-size: 13.5px; font-weight: 500;
+      color: var(--ink-mid);
+      border-bottom: 1px solid transparent;
+    }
+    .topbar .back:hover { color: var(--ink); }
+
+    /* Sample chapter layout */
+    .sample { padding: 0 0 80px; }
+
+    /* The cover image — a bit bigger now since it's the visual centerpiece */
+    .sample .cover {
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 2/3;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px -10px rgba(0,0,0,0.20);
+      margin: 0 0 36px 0;
+    }
+    .sample .cover img { width: 100%; height: 100%; object-fit: cover; }
+
+    .sample .chapeau {
+      font-family: var(--sans);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .sample h1 {
+      font-family: var(--sans);
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -0.022em;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      color: var(--ink);
+    }
+    .sample h1 em {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .sample .subtitle {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--ink-mid);
+      margin: 0 0 40px 0;
+      max-width: 580px;
+    }
+
+    /* The chapter excerpt — long-form reading typography, designed for ~6-9
+       paragraphs (= roughly half a chapter). Drop-cap on first paragraph. */
+    .sample .body { margin-top: 0; }
+    .sample .body p {
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin: 0 0 22px 0;
+      max-width: 640px;
+    }
+    .sample .body p:first-of-type::first-letter {
+      font-family: var(--serif);
+      font-size: 60px;
+      line-height: 0.9;
+      float: left;
+      padding-right: 8px;
+      padding-top: 4px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .sample .body p em { font-style: italic; color: var(--ink); }
+    .sample .body p strong { color: var(--ink); font-weight: 600; }
+
+    /* The "continuation" indicator — after the half-chapter body, we fade
+       the rest out and put a row of "..." dots over the upsell. Communicates
+       "this is cut off, the rest is in the book" without sounding desperate. */
+    .sample .continuation {
+      text-align: center;
+      margin: 18px 0 -10px 0;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 28px;
+      line-height: 1;
+      color: var(--accent);
+      letter-spacing: 0.4em;
+      /* Each "..." character is a separate span with a soft cascade */
+    }
+    .sample .continuation .dot {
+      display: inline-block;
+      animation: dots-pulse 2.4s ease-in-out infinite;
+    }
+    .sample .continuation .dot:nth-child(2) { animation-delay: 0.3s; }
+    .sample .continuation .dot:nth-child(3) { animation-delay: 0.6s; }
+    @keyframes dots-pulse {
+      0%, 60%, 100% { opacity: 0.30; }
+      30%           { opacity: 1.00; }
+    }
+
+    /* The fade-out behind the upsell card */
+    .sample .fader {
+      position: relative;
+      margin-top: -90px;
+      height: 220px;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 40%, var(--paper) 100%);
+      pointer-events: none;
+    }
+
+    /* The big upsell card — cleaner than the previous version */
+    .upsell {
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: 40px 32px;
+      background: #ffffff;
+      box-shadow: 0 18px 48px -16px rgba(0,0,0,0.10);
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .upsell .eyebrow {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .upsell h2 {
+      font-family: var(--serif);
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.018em;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 14px 0;
+    }
+    .upsell h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .upsell p {
+      font-family: var(--sans);
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--ink-mid);
+      margin: 0 0 24px 0;
+    }
+    .upsell .price {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .upsell .price-meta {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      margin-bottom: 22px;
+    }
+    .upsell .buy-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px;
+      background: var(--ink);
+      color: #ffffff;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 16px 28px;
+      border-radius: 999px;
+      transition: background .2s ease, transform .15s ease;
+      box-shadow: 0 8px 18px -6px rgba(0,0,0,0.25);
+    }
+    .upsell .buy-btn:hover {
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .sample-fallback {
+      text-align: center;
+      padding: 80px 0;
+      color: var(--ink-muted);
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--rule);
+      color: var(--ink-muted);
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand-mark">
+        <img src="bundle/qwt-logo-200.png" alt="">
+        <span class="name"><a href="index.html">QuickWellnessTips</a></span>
+      </div>
+      <a class="back" href="index.html">&larr; Back to the library</a>
+    </div>
+  </header>
+
+  <main class="sample wrap" id="sample-root">
+    <!-- populated by sample.js based on ?slug= query string -->
+  </main>
+
+  <footer>
+    QuickWellnessTips, a library of small practical guides.
+  </footer>
+
+  <script>
+    /* =============================================================
+       Sample-chapter database. Each book = title, kicker, and
+       ~6-9 paragraphs of cleaned body copy from the actual rendered
+       books (~half a chapter). The last paragraph always "breaks"
+       mid-beat so the page can fade out at a satisfying cliffhanger.
+
+       Style of writing: warm, second-person, plain language, no
+       em-dashes, no fake people, one method per book. Matches the
+       actual rendered output of the 10 PDFs.
+       ============================================================= */
+    var SAMPLES = {
+      'reset-your-body': {
+        title: 'Reset Your Body',
+        n: '01',
+        kicker: 'Chapter 1, from An 11-week practice for rebuilding strength, movement, and confidence.',
+        body: [
+          'A reset is not a transformation. A transformation implies you are broken and need fixing. A reset just means a baseline, a plain reading of what you can do today, with enough energy left to do it again tomorrow.',
+          'You might be coming back after a long layoff, or you might be in the middle of one and pretending it is not happening. Either way, the body that walks into the gym on day one is the body you are working with. Not a memory, not a goal. The aim this week is to find one honest version of a session that does not wipe you out for the next one. That is the whole reset. From that baseline, everything else gets clearer week over week.',
+          'Use the smallest version of the routine that can repeat. Modest gets repeated. Modest is useful. Returning quickly matters more than a perfect record. The point of the first month is not to prove anything. It is to keep showing up, gently, for long enough that the body stops being a debate and starts being a project again.',
+          'The work for week one is small and specific: the Two-Minute Honesty Check. It is a test, not a workout. Two minutes of standing still and noticing what you can actually do today, with the energy you have today, on the floor or at the wall, no equipment, no audience. You answer one of three questions. Ready. Limited. Not today. Most people skip this step and jump straight to a workout that is too ambitious for the body they brought. The Three-Minute Honesty Check is what you do instead so that the workout you pick matches the day you have.',
+          'For the next ten weeks the book does not move on until the day you have matches the routine you picked. Some weeks you will do a lot. Other weeks you will do almost nothing. Both are correct, because the program is the program over eleven weeks, not the program for today. The discipline is showing up and writing down the honest version, not the heroic one.',
+          'If you are not sure whether you are doing enough, the answer is almost always to do less, more often. The body you have today is not a draft to be improved. It is a baseline to be measured. Every week, you compare this week to last week. That is the whole loop. Sit to stand versus last week. Wall push-up versus last week. Twenty-second balance versus last week. Three minutes of walking versus last week. That is it. Four honest numbers, week after week, until week ten, when the program re-measures and tells you what kind of shape you are actually in.',
+          'There is a moment, somewhere around week three or four, where the practice starts to feel less like a project and more like a habit. That is the moment the book is trying to get you to. Most of the value of the next seven weeks is keeping the practice going long enough to reach it. Everything before that moment is just setup. Everything after it is just maintenance, scaled to fit whatever the next phase of your life asks for.'
+        ],
+      },
+      'build-your-discipline': {
+        title: 'Build Your Discipline',
+        n: '02',
+        kicker: 'Chapter 1, on habits that survive a bad week.',
+        body: [
+          'Discipline is what happens when motivation leaves the room. A routine that only works on days you feel like yourself is not a routine. It is a mood.',
+          'The most reliable way to build something you can actually keep is to make it small enough that the worst day of the year does not break it. Not the great day. The worst one. The day your kid is sick, or you traveled for work, or you slept four hours and a meeting ran over. If the routine can survive that day, it can survive most days. If it cannot, no amount of willpower will rescue it for long.',
+          'This is why the first move is to pick the smallest version that can actually repeat. Two minutes on the mat. Five minutes of writing. One page of the book. The work is to choose something you can finish on the worst day, then to do it.',
+          'Every routine in this book is built around the same skeleton. A cue, a routine, a reward. The cue is what triggers the habit. The routine is what you actually do. The reward is what closes the loop and makes your brain want to do it again tomorrow. Most habits break because one of those three is set up wrong. Usually it is the routine. It is sized to the day you imagine having, not the day you actually had.',
+          'The first chapter also says something the rest of the book keeps coming back to. Discipline is not a personality trait. It is not something you have or do not have. It is a skill you practice, the same way you practice anything else. The way you get better is to set up the smallest possible version of the thing you want to do, do it daily, and stop negotiating with yourself about whether today counts. Today counts. Tomorrow counts. The week you skip does not have to be a referendum on who you are.',
+          'There is a calibration moment, somewhere around week two or three, when you start to feel a slight pull when the cue arrives. Not motivation. Pull. The pull of the routine asking to be done because yesterday you did it and the day before that and the day before that. That pull is what your brain builds when it has a thing it can predict. It is the resource you are trying to grow. The book is just the first ten weeks of building it.',
+          'By the end of the ten-chapter arc you have a routine that runs when motivation is gone, when energy is gone, when the cue is gone, when the room is gone. That is what discipline is for. Everything else is decoration.'
+        ],
+      },
+      'calm-your-mind': {
+        title: 'Calm Your Mind',
+        n: '03',
+        kicker: 'Chapter 1, on noticing anxious thoughts without arguing with them.',
+        body: [
+          'Calm is not the absence of anxiety. Calm is what happens after you stop trying to argue with it.',
+          'Most of the trouble with anxious thinking is not the thoughts themselves. It is the argument we run with them. The thought arrives, and we immediately try to push it out, fix it, prove it wrong, or argue it into submission. That second activity, the argument, is what makes the thought loud. The argument is the amplifier. Without it, the thought tends to pass the way a car passes a house. You notice it, then it is gone.',
+          'The practice below is short and unglamorous for a reason. It works because it does not try to win. It just teaches you to notice, name what is happening, and return. Repeat that enough times and the thoughts lose their grip. Not because you defeated them. Because you stopped feeding them.',
+          'In the first session, sit somewhere you can be still for two minutes. Not in silence, just still. Set a timer. Notice the breath. Notice the thoughts. Most people notice the thoughts first. That is normal. The exercise is not to clear the mind. The exercise is to notice the thought, name it, then come back to the breath.',
+          'Most people who try this for a week report the same thing. The thoughts did not change. Their relationship to the thoughts did. They became the person having anxious thoughts, rather than the anxious person having thoughts. That is the entire shift. The thoughts keep coming. You stop believing they mean what they feel like they mean.',
+          'The point of chapter one is not to make you calm. It is to show you the shape of the argument you keep having, so that in the rest of the book you can recognize it when it shows up in a bigger form. The next breath anchor. The what-if loop. The body scanning. They are all versions of the same thing. Stop arguing. Notice. Return.',
+          'By the end of chapter one, you will not be relaxed. You will be the kind of person who can sit with anxiety and not try to win. That is not the goal of the book. That is the floor of it.'
+        ],
+      },
+      'steady-your-day': {
+        title: 'Steady Your Day',
+        n: '04',
+        kicker: 'Chapter 1, on designing a morning you can keep.',
+        body: [
+          'A steady day is not a perfect day. It is a day whose edges you decided the night before.',
+          'Most days go sideways in the first hour. Not because the day is hard, but because nothing was chosen. The morning drifts. The first decision becomes whichever notification lights up the phone first. By nine in the morning, the day is already someone else is design. The fix is small. Pick three things the night before. Not twelve. Three. One must-do, one should-do, one want-to-do. Write them down on paper, not on the phone. The act of writing is half of the win. The next morning, you will not be deciding what to do. You will already know.',
+          'By the time the second chapter ends you have a routine for the night before, a routine for the morning, a midday reset, an evening closer, and a weekly review. None of them are heroic. All of them are repeatable on the worst day of the year. The book is built around that constraint. Every recommendation has been pressure-tested against the day the alarm does not go off, the day the project explodes, the day your kid is sick. If it does not work on that day, it is not in the book.',
+          'The transitions are where most days go wrong. The walk from the desk to the kitchen. The hour between putting the kids to bed and going to sleep. The moment between closing a meeting and starting the next one. The book treats these as small rooms to design, instead of gaps to fill. Each transition gets the same treatment. A breath, a sentence, a glance. Three seconds. That is the entire input.',
+          'The point of the midday reset is not to feel better. It is to notice whether the spiral has started. The spiral has a tell. It starts when you stop noticing what you were doing two minutes ago. The reset is a check-in. If you are working, keep working. If you are reacting, switch. The whole thing takes less time than writing this paragraph. Most days you do not need it. The days you do need it, you need it a lot. So you practice it small and often.',
+          'There is a moment, around week three, where the small rituals stop feeling added on. They start feeling like part of the room. You make the tea in the morning and the notebook comes out without you deciding. You walk past the kitchen and the transition gets honored without you deciding. That is what the book is after. Not discipline. Familiarity.',
+          'By chapter ten you have a quiet version of every part of the day. The morning is chosen. The transitions are honored. The evening is closed out. The week is reviewed. None of it is impressive. All of it is repeatable. That is the whole program.'
+        ],
+      },
+      'heal-naturally': {
+        title: 'Heal Naturally',
+        n: '05',
+        kicker: 'Chapter 1, on how the body remembers stress.',
+        body: [
+          'Your body is part of the system. It does not just carry you through the day. It keeps the score.',
+          'When you sit in traffic and clench your jaw, when you swallow a sentence you meant to say, when you sleep six hours and call it fine, the body keeps a record. The record is not a thought. It is the shoulder that locks up, the shallow breath, the three in the morning wake. Most of the time, you cannot think your way out of it. The body does not speak in sentences. It speaks in tension.',
+          'Working with it is not complicated, but it is unfamiliar. Slow breath. Long exhales. A walk without the phone. Eight minutes of doing nothing. Anything that lets the nervous system read the room as safer than the head thinks it is. These are not wellness activities. They are maintenance on the system that holds the rest of your life.',
+          'The first chapter is the breath chapter. Not because breath is the answer to everything, but because it is the only lever you can reach in the middle of any other thing. Sitting in a meeting. Standing in line. Waking up at three. You always have breath. The book teaches you to use it deliberately, then to stop using it deliberately, then to use it again next time.',
+          'What the breath does, when it works, is give the nervous system a different message than the one it has been receiving. The body was getting news that it was unsafe. The long exhale is the news that it can stand down. You do not have to believe it. The body will believe it for you if you let the exhale run longer than the inhale, ten or twelve times in a row. That is what resets the dial.',
+          'There is a chapter on fear later in the book. By the time you reach it, the breath practice should be in your body, so the chapter on fear is mostly about recognizing the difference between the worry you can think about and the fear that lives in your shoulders. Same tool for both. Most people use the breath for the second without realizing they need it for the first.',
+          'By chapter ten, the book has not made you new. It has helped the body you already have become the one you were trying to remember. That is most of what healing is, for most people. Less arguing with what shows up. More space for what is already trying to happen.'
+        ],
+      },
+      'sleep-like-you-mean-it': {
+        title: 'Sleep Like You Mean It',
+        n: '06',
+        kicker: 'Chapter 1, on why you should stop trying to force sleep.',
+        body: [
+          'You cannot fall asleep by trying harder. You fall asleep by removing what is in the way.',
+          'Trying harder to sleep is one of the worst strategies humans have invented. The harder you try, the more awake you get. Sleep is not a finish line to cross. It is a state the body falls into when it stops bracing for impact. Bracing looks like trying. Stopping the bracing looks like giving up. They feel the same in the moment but have opposite effects on the body.',
+          'The single most useful thing you can do this week is pick one realistic wake-up time and hold it for seven days, no matter what. Same time, every day, including weekends. That is not a sleep hack. That is the only lever that actually moves the needle on adult sleep. The fix is in the morning. It is also the part nobody wants to do, which is exactly why it works.',
+          'Once the wake time is fixed, the second move is the inverse. Build the most boring thirty minutes you can invent for the hour before sleep. Light off. Phone in another room. Page, not scroll. Glass of water in the kitchen, not wine. Most of what passes for evening entertainment is paid for in lost sleep, and the bill is hidden.',
+          'The chapter on sleep drive is the core of the book. Sleep pressure builds with time awake and dissipates with time asleep. The whole day is a balance between the two. Most adults have lost the rhythm because the day has no real pressure shape and the night has no real permission to end. Everything else in the book is reshaping one or the other. The morning sharpens the next day is pressure. The evening is the next day is permission to stop.',
+          'You will know the program is working when you start to feel sleepy within twenty minutes of getting into bed. Most adults have lost that signal because they have spent so long trying to get sleepy that they cannot recognize it. The book is mostly about getting out of the way of the signal you already have.',
+          'There is a chapter on waking at three. By the time you reach it you will already have the wake-time story and the evening story in place. What is left for chapter nine is the mid-night case. Same tools. Different timing. Most people who solve it report that the thing that helped was not any new technique but having stopped arguing with the wake-up. The body stopped thinking it was an emergency. That is the milestone the book is after.'
+        ],
+      },
+      'eat-without-thinking-about-it': {
+        title: 'Eat Without Thinking About It',
+        n: '07',
+        kicker: 'Chapter 1, on stopping dieting by changing the goal.',
+        body: [
+          'You do not have a willpower problem. You have a goal problem. The current goal is set up to fail.',
+          'Most eating advice treats every meal like a quiz you have to pass. A meal can earn a green checkmark, or a red one. A day can be clean or dirty. A weekend can wash out a week. Most people trying to eat better end up with a score they cannot stop checking, and a body that has learned to dread what they used to enjoy. That is the loop the book is trying to get out of. Not by trying harder. By setting a different goal.',
+          'The goal the book suggests is not clean eating. The goal is to eat with your body instead of your schedule. Eating with your body means eating when you are hungry, stopping when you are not, and not making it a moral event either way. The interesting thing about that goal is that it does not require willpower. It requires attention. Most people can pay attention. Most people cannot win an argument with a chip.',
+          'The first chapter is mostly about the difference between hunger, appetite, and craving. They feel similar. They are not similar. Hunger is your body reporting an energy deficit. Appetite is your brain noticing food is around. Craving is your nervous system looking for a quick fix. Each one has a different fix. Hunger gets food. Appetite gets a pause. Craving gets a delay.',
+          'The pause is the tool the book keeps coming back to. Before every meal, before every snack, before every second helping, pause. Notice what is happening. Ask what you actually need. The pause does not have to be long. Ten seconds. Long enough to break the autopilot. The autopilot is what most of the trouble is.',
+          'There is a chapter on weekends later in the book. By the time you reach it, the pause is already a habit you do without deciding. The weekend problem becomes a different problem. Not how to eat clean on Saturday. How to notice what you are reaching for, why, and whether the answer is the food or something else.',
+          'By chapter ten, the project is small. The book is not trying to invent a new you. It is trying to lower the cost of the small decisions you already make, three times a day, so the question of what to eat stops feeling like a referendum on the kind of person you are. That is the goal. Most of the rest is on the way there.'
+        ],
+      },
+      'money-without-the-drama': {
+        title: 'Money, Without the Drama',
+        n: '08',
+        kicker: 'Chapter 1, on noticing your money anxiety loop.',
+        body: [
+          'Most money problems are not math problems. They are anxiety problems wearing a calculator.',
+          'A bill arrives. You do not open it for three weeks. The bill has not changed, but the dread has. By the time you open it, the amount feels worse than it is, because it carries three weeks of guilt on top. Your nervous system has been rehearsing the worst version the whole time. This is what most money anxiety actually is. Not the number. The waiting.',
+          'The first move is the smallest one. Open the mail. Look at the number. Tell the truth about it. Most of the time, the situation was thirty percent as bad as the dread. The rest of the book is about how to keep doing that without burning out. Because once you start looking, more arrives, and the looking becomes its own job unless you have a system.',
+          'That system is what chapter two introduces. The values-first money identity. You do not start with a budget. You start with a sentence. Mine is something like, I am a person who pays attention to small recurring charges and saves a percentage of every deposit without negotiating about it. That sentence does not have to be perfect. It has to be yours. Once you have it, the rest of the book is just behavior aligned to the sentence.',
+          'The chapter on tiny actions is the heart of the program. Most personal finance advice lives at the scale of annual salaries and percentages. The book lives at the scale of five-minute money actions. One category per week to look at. One subscription to renegotiate. One transfer to schedule. Small enough that you cannot talk yourself out of it on a busy day. Large enough that, repeated, they change the shape of the year.',
+          'There is a chapter on debt later. By the time you reach it, you will already know which purchases in the last twelve months were values-aligned and which were not. You will not be motivated by shame. You will be motivated by the picture, which is calmer than the picture you were carrying.',
+          'By chapter ten, the project is small. The book is not trying to make you rich. It is trying to get the dread out of the picture, get the truth into the picture, and replace the high-drama money habits with low-drama ones that still move the right direction over a year. Most of the rest is on the way there.'
+        ],
+      },
+      'talk-so-people-listen': {
+        title: 'Talk So People Listen',
+        n: '09',
+        kicker: 'Chapter 1, on the hard-conversation map.',
+        body: [
+          'Hard conversations do not fail because of what you say. They fail because of when and how you say it.',
+          'There is a moment, usually a few seconds long, where a hard conversation either takes hold or falls apart. It is the moment right after you have said the observation, the part where you wait for the other person to respond. People who win hard conversations have learned to wait in that moment without filling it. People who lose them usually fill it.',
+          'The wait is doing three things at once. It gives the other person room to absorb what was said. It signals that you are not just dumping on them and leaving. And it creates space for them to tell you the part you did not know. Most hard conversations fail because someone fills that gap before it can do any of those three things. The conversation was lost the moment they filled it.',
+          'The hard-conversation map is the second chapter. It looks like a recipe you would not expect on a meditation practice. Permission sentence. Observation, not verdict. Two-track message, impact plus request. Reparation if you get it wrong. The whole thing fits on a single page. The reason it fits on one page is that it is mostly restraint. Say less. Wait longer. Notice what is happening.',
+          'Most of the book is teaching when to have the conversation. That sounds backwards, but it is the part people skip. They have the conversation when the feelings are loud, when the room is wrong, when the day has been long. Of course it goes badly. Chapter three is the timing chapter. The one conviction: ninety percent of hard-conversation failure is a timing failure first. Pick the right moment and the conversation is half done.',
+          'There is a chapter on repair later. By the time you reach it, you will have a small library of conversations you did not handle well, because everyone does. The chapter is not about how to undo those. It is about how to acknowledge them, cleanly, without dragging the past back in. Most repairs that go wrong go wrong because the repair tries to be longer than the original rupture. Short, sincere, no extras.',
+          'By chapter ten, the project is small. The book is not trying to make you fearless. It is trying to give you a way to have the conversations that matter, in a way you can stand behind the next day. That is the whole aim. The rest is on the way there.'
+        ],
+      },
+      'build-real-confidence': {
+        title: 'Build Real Confidence',
+        n: '10',
+        kicker: 'Chapter 1, on why confidence is a skill, not a mood.',
+        body: [
+          'Confidence is not a feeling you wait for. It is a side effect of repeated evidence that you keep choosing to ignore.',
+          'Most people treat confidence like weather. It shows up some days, it is gone on others, and there is not much you can do about it. That framing is expensive because it leaves you completely at the mercy of the day you happen to be having. It also makes the goal unreachable, since waiting for a feeling does not produce the feeling. There is a different theory, much more useful.',
+          'Confidence is what you have when the story your brain tells you about yourself is mostly accurate. Most of the time, the story is not accurate. It is either worse than the evidence supports, because you are tired or scared, or better than the evidence supports, because you just had a small win and the brain has not caught up. The book teaches you to update the story, on purpose, with evidence you can defend when the bad day comes back. That update is most of what real confidence is.',
+          'The first chapter is mostly about spotting your confidence story in real time. The story is in your body before it is in your thoughts. Shoulders up or down. Stomach tight or loose. Whether you finish sentences or trail off into nothing. The signals are louder than the words. Most people have not been taught to read them. The chapter is short. The practice it teaches you lasts the rest of the book.',
+          'Confidence is also a story you tell about the future. Most people tell one of two stories. Either, things will probably go fine, which is brittle, or, things have gone fine before and they will again, which is the one you want. The chapter on building evidence is mostly about collecting enough small wins that you can defend the second story out loud, even on a day you do not feel like defending anything.',
+          'There is a chapter on confidence under stress later in the book. By the time you reach it you will have the micro-competence practice already in place, which is what the body uses when the day goes sideways. The chapter is mostly about noticing which version of yourself shows up under load, and training the version you want to show up.',
+          'By chapter ten, the project is small. The book is not trying to make you the loudest person in the room. It is trying to give you a way to update the story on purpose, with evidence you trust, so that on the worst day you still recognize yourself. That is the goal. The rest is on the way there.'
+        ],
+      },
+    };
+
+    /* =============================================================
+       Read ?slug= from the URL and render the matching sample.
+       Renders ~half a chapter + animated "..." continuation + an
+       upsell card with the buy-now link.
+       ============================================================= */
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var slug = params.get('slug') || 'reset-your-body';
+      var data = SAMPLES[slug];
+      var root = document.getElementById('sample-root');
+      document.getElementById('page-title').textContent =
+        (data ? data.title : 'Sample') + ' — QuickWellnessTips';
+
+      if (!data) {
+        root.innerHTML = '<div class="sample-fallback">Unknown sample. <a href="index.html">&larr; Back to the library</a></div>';
+        return;
+      }
+
+      var html = [
+        '<div class="cover">',
+          '<img src="bundle/' + slug + '-cover.jpeg" alt="' + escape(data.title) + '">',
+        '</div>',
+        '<div class="chapeau">Sample, Chapter 1</div>',
+        '<h1>', escape(data.title), '</h1>',
+        '<p class="subtitle">', escape(data.kicker), '</p>',
+        '<div class="body">'
+      ].join('');
+      for (var i = 0; i < data.body.length; i++) {
+        html += '<p>' + escape(data.body[i]) + '</p>';
+      }
+      html += '</div>';
+
+      // The "..." continuation dots. Animated cascade so it feels alive.
+      html += '<div class="continuation"><span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>';
+
+      // Fade-out behind the upsell card.
+      html += '<div class="fader"></div>';
+
+      // The big upsell card.
+      html += '<div class="upsell" style="margin-top: 24px;">';
+      html +=   '<div class="eyebrow">Continued in the book</div>';
+      html +=   '<h2><em style="font-family:var(--serif); font-style:italic; color:var(--accent); font-weight:500;">Pick up where you left off.</em></h2>';
+      html +=   '<p>Buy the full library to keep reading all ten books, including the rest of this chapter, every exercise, and the one-page Key Takeaways card.</p>';
+      html +=   '<div class="price" id="upsell-price">$19.99</div>';
+      html +=   '<div class="price-meta">Single payment. Yours forever.</div>';
+      html +=   '<a class="buy-btn" id="upsell-btn" href="#" target="_blank" rel="noopener">Buy the bundle &nbsp;&rarr;</a>';
+      html += '</div>';
+
+      root.innerHTML = html;
+
+      // Bind the buy button to the live buy-now.json source (same as index).
+      fetch('buy-now.json', {cache: 'no-store'})
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (cfg) {
+          if (!cfg) return;
+          if (cfg.beacons_url) document.getElementById('upsell-btn').href = cfg.beacons_url;
+          if (cfg.price) document.getElementById('upsell-price').textContent = cfg.price;
+        });
+    })();
+
+    function escape(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+  </script>
+</body>
+</html>

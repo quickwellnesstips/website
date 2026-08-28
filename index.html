@@ -200,6 +200,14 @@
       border-radius: 4px;
       backdrop-filter: blur(4px);
     }
+    /* Cycle the "Sample" tag through the site's five accent colors instead
+       of every book showing the same one — matches the multi-hue palette
+       used across the rest of the page. */
+    .bookshelf .book-tile:nth-child(5n+1) .sample-tag { background: var(--accent); }
+    .bookshelf .book-tile:nth-child(5n+2) .sample-tag { background: var(--accent-2); }
+    .bookshelf .book-tile:nth-child(5n+3) .sample-tag { background: var(--accent-3); }
+    .bookshelf .book-tile:nth-child(5n+4) .sample-tag { background: var(--accent-4); }
+    .bookshelf .book-tile:nth-child(5n+5) .sample-tag { background: var(--accent-5); }
     .book-tile .meta { text-align: center; }
     .book-tile .name {
       font-family: var(--sans);
@@ -537,18 +545,15 @@
     }
 
     .disclosure {
-      max-width: 1100px;
-      margin: 48px auto 0;
-      padding: 14px 20px;
-      background: rgba(0,0,0,0.02);
-      border-left: 3px solid var(--rule);
-      border-radius: 0 8px 8px 0;
+      max-width: 900px;
+      margin: 40px auto 0;
       font-family: var(--sans);
-      font-size: 12.5px;
-      line-height: 1.55;
-      color: var(--ink-mid);
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--ink-muted);
+      text-align: center;
     }
-    .disclosure strong { font-weight: 600; color: var(--ink); }
+    .disclosure strong { font-weight: 600; color: var(--ink-mid); }
     .disclosure a { color: var(--accent); border-bottom: 1px solid currentColor; }
 
     @media (max-width: 560px) {
@@ -563,6 +568,8 @@
     .featured-section .section-title em { color: var(--accent-4); }
     .featured-section .product-card .card-cta { background: var(--accent-5); }
     .featured-section .product-card:hover .card-cta { background: #4a148c; }
+    .featured-section .product-card .card-cta.card-cta-amazon { background: #fb8c00; }
+    .featured-section .product-card:hover .card-cta.card-cta-amazon { background: #e65100; }
     .recipes-section .section-eyebrow { color: var(--accent-2); }
     .recipes-section .section-title em { color: var(--accent-2); }
     .recipes-section .recipe-tag { color: var(--accent-2); }
@@ -817,11 +824,7 @@
       <div class="product-grid" id="product-grid"></div>
 
       <div class="disclosure">
-        <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and other affiliate programs. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
-      </div>
-
-      <div class="disclosure">
-        <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and other affiliate programs. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
+        <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and the TikTok Shop Affiliate Program. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
       </div>
     </div>
   </section>
@@ -958,10 +961,20 @@
           var photo = it.image
             ? '<div class="card-photo"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '"></div>'
             : '<div class="card-photo empty"></div>';
+          var ctaText;
+          if (it.source === 'Amazon') {
+            ctaText = 'Shop on Amazon';
+          } else if (it.source === 'Beam') {
+            ctaText = 'Read more';
+          } else {
+            ctaText = it.source ? 'Shop ' + esc(it.source) : 'Shop now';
+          }
+          var ctaClass = it.source === 'Amazon' ? 'card-cta card-cta-amazon' : 'card-cta';
           return [
             '<a class="product-card" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
               photo,
               '<div class="card-deck">' + esc(it.blurb || it.title || '') + '</div>',
+              '<span class="' + ctaClass + '">' + ctaText + '</span>',
             '</a>'
           ].join('');
         }).join('');

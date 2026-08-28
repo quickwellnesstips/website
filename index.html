@@ -273,6 +273,45 @@
       align-self: center;
     }
     .offer .spec-list li strong { color: var(--ink); font-weight: 600; }
+    .offer .price-block {
+      display: inline-flex; align-items: baseline; gap: 14px;
+      margin-bottom: 4px;
+    }
+    .offer .price-original {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2vw, 24px);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ink-muted);
+      position: relative;
+      display: inline-block;
+      padding: 0 4px;
+    }
+    /* Diagonal slash through the original price (price-sticker mark) */
+    .offer .price-original::after {
+      content: "";
+      position: absolute;
+      left: -2px;
+      right: -2px;
+      top: 50%;
+      height: 2px;
+      background: var(--accent);
+      transform: rotate(-14deg);
+      transform-origin: center;
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px rgba(36, 163, 190, 0.18);
+    }
+    .offer .price-saving {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 3px 8px;
+      background: var(--accent-tint);
+      border-radius: 999px;
+    }
     .offer .price {
       font-family: var(--serif);
       font-size: clamp(38px, 4vw, 48px);
@@ -627,6 +666,10 @@
             <li><strong>One PDF download.</strong> Yours forever, no subscription.</li>
           </ul>
 
+          <div class="price-block">
+            <span class="price-original" id="offer-price-original">$24.99</span>
+            <span class="price-saving">Save 20%</span>
+          </div>
           <div class="price" id="offer-price">$19.99</div>
           <div class="price-meta" id="offer-price-meta">Single payment. Instant access.</div>
 
@@ -738,10 +781,21 @@
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (cfg) {
           if (!cfg) return;
-          if (cfg.price)        document.getElementById('offer-price').textContent = cfg.price;
-          if (cfg.subtitle)     document.getElementById('offer-price-meta').textContent = cfg.subtitle;
-          if (cfg.blurb)       document.getElementById('offer-blurb').textContent = cfg.blurb;
-          if (cfg.beacons_url) document.getElementById('offer-btn').href = cfg.beacons_url;
+          if (cfg.price)            document.getElementById('offer-price').textContent = cfg.price;
+          if (cfg.original_price)   document.getElementById('offer-price-original').textContent = cfg.original_price;
+          // Compute "Save X%" badge from original vs current price
+          if (cfg.original_price && cfg.price) {
+            var orig = parseFloat(String(cfg.original_price).replace(/[^0-9.]/g, ''));
+            var cur = parseFloat(String(cfg.price).replace(/[^0-9.]/g, ''));
+            if (orig > cur && orig > 0) {
+              var pct = Math.round(((orig - cur) / orig) * 100);
+              var savingEl = document.querySelector('.offer .price-saving');
+              if (savingEl) savingEl.textContent = 'Save ' + pct + '%';
+            }
+          }
+          if (cfg.subtitle)         document.getElementById('offer-price-meta').textContent = cfg.subtitle;
+          if (cfg.blurb)            document.getElementById('offer-blurb').textContent = cfg.blurb;
+          if (cfg.beacons_url)      document.getElementById('offer-btn').href = cfg.beacons_url;
           if (cfg.bundles_to_offer && cfg.bundles_to_offer.length) {
             document.getElementById('offer-bundles').innerHTML =
               cfg.bundles_to_offer.map(function (b) {

@@ -1,42 +1,47 @@
 [
   {
-    "source": "TikTok Shop",
-    "title": "(replace with actual product name)",
-    "blurb": "(one-line description: who it's for + when you'd grab it)",
+    "source": "Amazon",
+    "title": "Insulated Water Bottle, 32oz",
+    "blurb": "The one I refill three times a day. Handle makes it easy to carry.",
+    "price": "$28",
+    "badge": "Top pick",
     "image": "bundle/product-placeholder-1.jpeg",
-    "url": "https://www.tiktok.com/t/ZP9BD5fRqSo1V-hXpvi/",
-    "_note": "TikTok product 1 of 5 - replace title/blurb/image as needed"
+    "url": "https://amzn.to/4y5lor1"
   },
   {
-    "source": "TikTok Shop",
-    "title": "(replace with actual product name)",
-    "blurb": "(one-line description)",
+    "source": "Amazon",
+    "title": "Blackout Curtains",
+    "blurb": "For the week the light wakes you up at 5:30 and you can't get back to sleep.",
+    "price": "$32",
+    "badge": "",
     "image": "bundle/product-placeholder-2.jpeg",
-    "url": "https://www.tiktok.com/t/ZP9BD59tBdSJ7-1pljE/",
-    "_note": "TikTok product 2"
+    "url": "https://amzn.to/4y6FAJd"
   },
   {
-    "source": "TikTok Shop",
-    "title": "(replace with actual product name)",
-    "blurb": "(one-line description)",
+    "source": "Amazon",
+    "title": "Resistance Bands, Set of 5",
+    "blurb": "Smallest version of strength work for the day the gym is closed.",
+    "price": "$24",
+    "badge": "",
     "image": "bundle/product-placeholder-3.jpeg",
-    "url": "https://www.tiktok.com/t/ZP9BD5xpjdJ9o-pzwCI/",
-    "_note": "TikTok product 3"
+    "url": "https://amzn.to/4x05gGp"
   },
   {
-    "source": "TikTok Shop",
-    "title": "(replace with actual product name)",
-    "blurb": "(one-line description)",
+    "source": "Amazon",
+    "title": "Blue Light Glasses",
+    "blurb": "For the after-sundown hours when the brain does not want to come down.",
+    "price": "$22",
+    "badge": "",
     "image": "bundle/product-placeholder-4.jpeg",
-    "url": "https://www.tiktok.com/t/ZP9BD54YdMLh3-mjkR8/",
-    "_note": "TikTok product 4"
+    "url": "https://amzn.to/4y6FJfJ"
   },
   {
-    "source": "TikTok Shop",
-    "title": "(replace with actual product name)",
-    "blurb": "(one-line description)",
+    "source": "Amazon",
+    "title": "Sleep Mask, Contoured",
+    "blurb": "For the kind of morning you want to sleep through.",
+    "price": "$18",
+    "badge": "New",
     "image": "bundle/product-placeholder-5.jpeg",
-    "url": "https://www.tiktok.com/t/ZP9BD54uDmFPK-v8VAc/",
-    "_note": "TikTok product 5"
+    "url": "https://amzn.to/3SeAX0v"
   }
 ]

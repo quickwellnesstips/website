@@ -1,10 +1,11 @@
 {
   "beacons_url": "https://beacons.ai/quickwellnesstips/your-product-slug",
-  "price": "$17.99",
+  "price": "$19.99",
   "library_title": "The QuickWellnessTips Library, all 10 books",
   "subtitle": "All ten books in one PDF download. Practical guides for the routines that already shape your day.",
   "bundles_to_offer": [
-    "$17.99 Single library",
-    "$9.99 Single book (any of the 10)"
-  ]
+    "$19.99 Single library",
+    "$7 Single book (any of the 10)"
+  ],
+  "original_price": "$24.99"
 }

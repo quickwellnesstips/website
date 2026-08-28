@@ -430,6 +430,8 @@
       text-decoration: none;
       color: inherit;
       transition: transform .25s ease;
+      /* Equal-height cards so all the pills line up at the same Y */
+      height: 100%;
     }
     .product-card:hover { transform: translateY(-4px); }
 
@@ -457,10 +459,13 @@
       margin: 0 0 22px 0;
     }
 
+    /* Push the CTA to the bottom of every card so the pills line up
+       at the same vertical position across all 4 cards. */
     .product-card .card-cta {
       display: inline-flex; align-items: center; justify-content: center;
       gap: 8px;
       align-self: center;
+      margin-top: auto;          /* push to the bottom of the flex column */
       padding: 14px 28px;
       background: var(--ink);
       color: #ffffff;
@@ -515,7 +520,169 @@
     }
     @media (max-width: 560px) {
       .product-grid { grid-template-columns: 1fr; }
-    }/* ----- FOOTER ----- */
+    }
+    /* ============================================================
+       RECIPES & WELLNESS TIPS — blog/recipe grid + newsletter
+       The "from the kitchen + the practice" section. Cards are
+       article previews with a thumbnail, tag, title, excerpt, date.
+       Newsletter form sits centered under the grid.
+       ============================================================ */
+    .recipes-section {
+      padding: 80px 0 96px;
+      background: #fafafa;
+      border-top: 1px solid var(--rule);
+    }
+    .recipes-section .section-head {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+    }
+    .recipes-section .section-title em {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    .recipes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1100px;
+      margin: 0 auto 56px;
+    }
+    .recipe-card {
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color .2s ease, transform .2s ease;
+      display: flex; flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    .recipe-card:hover {
+      border-color: var(--rule-strong);
+      transform: translateY(-2px);
+    }
+    .recipe-thumb {
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--accent-tint) 0%, #f0f7f9 100%);
+      overflow: hidden;
+    }
+    .recipe-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .recipe-body { padding: 22px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    .recipe-tag {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .recipe-title {
+      font-family: var(--serif);
+      font-size: 19px; font-weight: 600; line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 10px 0;
+    }
+    .recipe-blurb {
+      font-family: var(--sans);
+      font-size: 13.5px; line-height: 1.55;
+      color: var(--ink-mid);
+      margin: 0 0 12px 0;
+      flex: 1;
+    }
+    .recipe-meta {
+      font-family: var(--sans);
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    /* The newsletter signup form — sits in its own card under the grid */
+    .newsletter {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 32px 32px 36px;
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      text-align: center;
+    }
+    .newsletter .newsletter-eyebrow {
+      font-family: var(--sans);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .newsletter h3 {
+      font-family: var(--serif);
+      font-size: 22px; line-height: 1.25;
+      letter-spacing: -0.018em;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 8px 0;
+    }
+    .newsletter h3 em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .newsletter p {
+      font-family: var(--sans);
+      font-size: 14px; line-height: 1.55;
+      color: var(--ink-mid);
+      margin: 0 0 18px 0;
+    }
+    .newsletter form {
+      display: flex; gap: 8px;
+    }
+    .newsletter input[type="email"] {
+      flex: 1;
+      padding: 14px 18px;
+      border: 1px solid var(--rule-strong);
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--ink);
+      background: #ffffff;
+      outline: none;
+      transition: border-color .15s ease;
+    }
+    .newsletter input[type="email"]:focus { border-color: var(--accent); }
+    .newsletter button[type="submit"] {
+      padding: 14px 24px;
+      background: var(--ink);
+      color: #ffffff;
+      font-family: var(--sans);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .15s ease;
+      white-space: nowrap;
+    }
+    .newsletter button[type="submit"]:hover { background: var(--accent); }
+    .newsletter .newsletter-fine {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: var(--ink-muted);
+      margin: 14px 0 0;
+    }
+    .newsletter .newsletter-status {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--accent);
+      margin-top: 12px;
+      min-height: 18px;
+    }
+    @media (max-width: 720px) {
+      .recipes-grid { grid-template-columns: 1fr; }
+      .newsletter form { flex-direction: column; }
+      .newsletter button[type="submit"] { width: 100%; }
+    }
+
+/* ----- FOOTER ----- */
     .footer {
       padding: 36px 0;
       background: #ffffff;
@@ -609,13 +776,48 @@
 
       <div class="product-grid" id="product-grid"></div>
 
+      <!-- The Amazon list section — full-width product rows below the grid -->
+      <div class="product-list" id="product-list"></div>
+
+      <div class="disclosure">
+        <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and other affiliate programs. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
+      </div>
+
       <div class="disclosure">
         <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and other affiliate programs. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <!-- ============================================================
+       RECIPES & WELLNESS TIPS — blog previews + newsletter
+       Renders from posts/posts.json (a flat array of post objects).
+       Each post: {title, date, tag, excerpt, thumb, url}
+       ============================================================ -->
+  <section id="recipes" class="recipes-section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-eyebrow">From the Kitchen + the Practice</div>
+        <h2 class="section-title">Recipes &amp; <em>wellness tips</em>.</h2>
+        <p class="section-deck">Small, useful things: what to eat when you can't sleep, how to make a sour cherry tonic, the kind of recipes and habits the books mention. A new one every other Sunday.</p>
+      </div>
+
+      <div class="recipes-grid" id="recipes-grid"></div>
+
+      <div class="newsletter">
+        <div class="newsletter-eyebrow">Newsletter</div>
+        <h3>Get the next one in your <em>inbox</em>.</h3>
+        <p>One small recipe or habit, every other Sunday. No filler, no tracking pixels, unsubscribe in one click.</p>
+        <form id="newsletter-form" action="https://beacons.ai/quickwellnesstips/newsletter" method="post" novalidate>
+          <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="newsletter-status" id="newsletter-status" aria-live="polite"></div>
+        <div class="newsletter-fine">By subscribing you agree to receive email from QuickWellnessTips. We do not share your address.</div>
+      </div>
+    </div>
+  </section>
+<footer class="footer">
     <div class="wrap footer-inner">
       <div>QuickWellnessTips, a library of small practical guides.</div>
       <div>
@@ -719,19 +921,16 @@
     })();
 
     /* =============================================================
-       BELOW: Featured products — 4-up square cards (Beam layout)
-       Renders from featured-products.json. Each card:
-         square photo (1:1)  |  italic-serif deck line  |  black pill CTA
-
-       Schema (per item):
-         title:  "Glow"
-         blurb:  "Your hormones in balance."   (1-line deck shown on the card)
-         image:  "bundle/beam-1.jpeg"
-         url:    "https://beambeam.com/products/glow"
-         source: "Beam"                          (optional, used in tooltip)
+       BELOW: Featured products — split by layout
+       Reads featured-products.json. Each item has a "layout" field:
+         "grid"  -> square 4-up card (Beam-style)
+         "row"   -> horizontal product row (Amazon category-style)
+       The render separates them into two containers: #product-grid
+       (Beam) and #product-list (Amazon).
        ============================================================= */
     (function () {
       var grid = document.getElementById('product-grid');
+      var list = document.getElementById('product-list');
 
       fetch('featured-products.json', {cache: 'no-store'})
         .then(function (r) { return r.ok ? r.json() : []; })
@@ -740,30 +939,64 @@
 
       function render(items) {
         if (!items || !items.length) {
-          grid.innerHTML = [
-            '<div class="grid-empty">',
-              'No products yet. Add items to <code>featured-products.json</code>, then refresh.',
-            '</div>'
-          ].join('');
+          grid.innerHTML = '<div class="grid-empty">No products yet.</div>';
+          list.innerHTML = '';
           return;
         }
-        grid.innerHTML = items.map(function (it) {
-          var photo = it.image
-            ? '<div class="card-photo">'
-              + '<img src="' + esc(it.image) + '" alt="' + esc(it.title) + '">'
-              + '</div>'
-            : '<div class="card-photo empty"></div>';
-          var ctaText = it.source
-            ? 'Shop ' + esc(it.source)
-            : 'Shop now';
-          return [
-            '<a class="product-card" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
-              photo,
-              '<div class="card-deck">' + esc(it.blurb || it.title || '') + '</div>',
-              '<span class="card-cta">' + ctaText + '</span>',
-            '</a>'
-          ].join('');
-        }).join('');
+        var gridItems = items.filter(function (it) { return (it.layout || 'grid') === 'grid'; });
+        var listItems = items.filter(function (it) { return (it.layout || 'row')  === 'row';  });
+
+        if (gridItems.length) {
+          grid.innerHTML = gridItems.map(function (it) {
+            var photo = it.image
+              ? '<div class="card-photo"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '"></div>'
+              : '<div class="card-photo empty"></div>';
+            var ctaText = it.source ? 'Shop ' + esc(it.source) : 'Shop now';
+            return [
+              '<a class="product-card" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
+                photo,
+                '<div class="card-deck">' + esc(it.blurb || it.title || '') + '</div>',
+                '<span class="card-cta">' + ctaText + '</span>',
+              '</a>'
+            ].join('');
+          }).join('');
+        } else {
+          grid.innerHTML = '<div class="grid-empty">No featured products yet.</div>';
+        }
+
+        if (listItems.length) {
+          list.innerHTML = listItems.map(function (it) {
+            var thumb = it.image
+              ? '<div class="row-thumb">'
+                + '<img src="' + esc(it.image) + '" alt="' + esc(it.title) + '">'
+                + (it.badge ? '<div class="row-badge">' + esc(it.badge) + '</div>' : '')
+                + '</div>'
+              : '<div class="row-thumb empty"></div>';
+            var meta = it.meta
+              ? '<div class="row-meta">' + esc(it.meta) + '</div>'
+              : '';
+            var price = it.price
+              ? '<div class="row-price">' + esc(it.price) + '</div>'
+              : '';
+            return [
+              '<a class="product-row" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
+                thumb,
+                '<div class="row-body">',
+                  '<div class="row-source">' + esc(it.source || 'Store') + '</div>',
+                  '<div class="row-title">' + esc(it.title || 'Untitled') + '</div>',
+                  '<div class="row-blurb">' + esc(it.blurb || '') + '</div>',
+                  meta,
+                '</div>',
+                '<div class="row-action">',
+                  price,
+                  '<span class="row-cta">View on ' + esc(it.source || 'store') + '</span>',
+                '</div>',
+              '</a>'
+            ].join('');
+          }).join('');
+        } else {
+          list.innerHTML = '';
+        }
       }
     })();
 

@@ -365,20 +365,19 @@
     }
 
     /* ============================================================
-       FEATURED PRODUCTS — horizontal shopping list
-       6 product rows, each: thumbnail on the left, title +
-       description + price + meta in the middle, CTA on the right.
-       The pattern of Amazon search results / Etsy category listings.
-       White background, hairline divider between rows.
+       FEATURED PRODUCTS — square cards, 4-up grid
+       Each card is a single column: square product photo at top,
+       a single italic-serif deck line, then a black pill CTA.
+       Layout matches the BEAM products reference exactly.
        ============================================================ */
     .featured-section {
-      padding: 56px 0 80px;
+      padding: 64px 0 80px;
       background: #ffffff;
     }
     .section-head {
-      max-width: 1100px;
-      margin: 0 auto 32px;
-      text-align: left;
+      max-width: 1240px;
+      margin: 0 auto 36px;
+      text-align: center;
     }
     .section-eyebrow {
       font-family: var(--sans);
@@ -413,127 +412,72 @@
       color: var(--ink-soft);
       margin: 0;
       max-width: 720px;
+      margin-left: auto; margin-right: auto;
     }
 
-    /* The list — a single column of rows. */
-    .product-list {
-      max-width: 1100px;
-      margin: 0 auto;
-      border-top: 1px solid var(--rule);
-    }
-    .product-row {
+    /* The 4-up product grid — equal columns, square cards */
+    .product-grid {
       display: grid;
-      grid-template-columns: 140px 1fr auto;
-      gap: 28px;
-      align-items: center;
-      padding: 22px 4px;
-      border-bottom: 1px solid var(--rule);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    /* Each card — square photo on top, deck line, pill button. The
+       link wraps the whole card so the entire tile is clickable. */
+    .product-card {
+      display: flex; flex-direction: column;
       text-decoration: none;
       color: inherit;
-      transition: background .15s ease;
+      transition: transform .25s ease;
     }
-    .product-row:hover { background: rgba(36, 163, 190, 0.04); }
-    .product-row .row-thumb {
-      width: 140px;
-      height: 140px;
-      border-radius: 4px;
-      overflow: hidden;
+    .product-card:hover { transform: translateY(-4px); }
+
+    .product-card .card-photo {
+      aspect-ratio: 1/1;
       background: #fafafa;
-      border: 1px solid var(--rule);
-      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 22px;
     }
-    .product-row .row-thumb img {
+    .product-card .card-photo img {
       width: 100%; height: 100%; object-fit: cover;
     }
-    .product-row .row-thumb.empty {
+    .product-card .card-photo.empty {
       background: linear-gradient(135deg, var(--accent-tint) 0%, #f0f7f9 100%);
     }
-    /* Optional badge on the thumb (top-left) */
-    .product-row .row-badge {
-      position: absolute;
-      top: 6px; left: 6px;
-      background: var(--ink);
-      color: #fff;
-      font-family: var(--sans);
-      font-size: 9.5px; font-weight: 700;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      padding: 3px 7px;
-      border-radius: 2px;
-    }
 
-    /* The body: source chip + title + blurb + meta */
-    .product-row .row-body { min-width: 0; }
-    .product-row .row-source {
-      font-family: var(--sans);
-      font-size: 10.5px; font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 6px;
-    }
-    .product-row .row-title {
-      font-family: var(--sans);
-      font-size: 17px;
-      font-weight: 600;
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      margin: 0 0 6px 0;
-    }
-    .product-row .row-title:hover { color: var(--accent-deep); }
-    .product-row .row-blurb {
-      font-family: var(--sans);
-      font-size: 13.5px;
-      line-height: 1.5;
-      color: var(--ink-mid);
-      margin: 0 0 8px 0;
-      max-width: 560px;
-    }
-    .product-row .row-meta {
-      font-family: var(--sans);
-      font-size: 11.5px;
-      color: var(--ink-muted);
-    }
-    .product-row .row-meta strong { color: var(--ink); font-weight: 600; }
-
-    /* The right column: price + CTA, stacked vertically */
-    .product-row .row-action {
-      text-align: right;
-      display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
-      min-width: 140px;
-    }
-    .product-row .row-price {
+    .product-card .card-deck {
       font-family: var(--serif);
       font-size: 22px;
-      font-weight: 600;
-      color: var(--ink);
+      line-height: 1.25;
       letter-spacing: -0.01em;
+      color: var(--ink);
+      text-align: center;
+      margin: 0 0 22px 0;
     }
-    .product-row .row-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 8px 16px;
-      background: transparent;
-      color: var(--accent);
-      font-family: var(--sans);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      transition: background .15s ease, color .15s ease;
-    }
-    .product-row:hover .row-cta {
-      background: var(--accent);
-      color: #ffffff;
-    }
-    .product-row .row-cta::after { content: "→"; }
 
-    /* Empty state for the list */
-    .list-empty {
-      max-width: 720px;
-      margin: 0 auto;
+    .product-card .card-cta {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px;
+      align-self: center;
+      padding: 14px 28px;
+      background: var(--ink);
+      color: #ffffff;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .product-card .card-cta::after { content: "→"; }
+    .product-card:hover .card-cta { background: var(--accent); }
+
+    /* Empty state for the grid */
+    .grid-empty {
+      grid-column: 1 / -1;
       text-align: center;
       padding: 60px 20px;
       color: var(--ink-muted);
@@ -541,7 +485,7 @@
       font-size: 14px;
       line-height: 1.6;
     }
-    .list-empty code {
+    .grid-empty code {
       background: var(--paper);
       padding: 2px 8px;
       border-radius: 3px;
@@ -552,7 +496,7 @@
 
     .disclosure {
       max-width: 1100px;
-      margin: 32px auto 0;
+      margin: 48px auto 0;
       padding: 14px 20px;
       background: rgba(0,0,0,0.02);
       border-left: 3px solid var(--rule);
@@ -565,21 +509,13 @@
     .disclosure strong { font-weight: 600; color: var(--ink); }
     .disclosure a { color: var(--accent); border-bottom: 1px solid currentColor; }
 
-    @media (max-width: 720px) {
-      .product-row {
-        grid-template-columns: 96px 1fr;
-        gap: 16px;
-      }
-      .product-row .row-action {
-        grid-column: 1 / -1;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .product-row .row-thumb { width: 96px; height: 96px; }
+    @media (max-width: 980px) {
+      .featured-section { padding: 48px 0 56px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
     }
-
-    /* ----- FOOTER ----- */
+    @media (max-width: 560px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }/* ----- FOOTER ----- */
     .footer {
       padding: 36px 0;
       background: #ffffff;
@@ -671,7 +607,7 @@
         <p class="section-deck">A curated shelf of physical things the books mention. When you buy through these links, we earn a small commission at no cost to you.</p>
       </div>
 
-      <div class="product-list" id="product-list"></div>
+      <div class="product-grid" id="product-grid"></div>
 
       <div class="disclosure">
         <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and other affiliate programs. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
@@ -783,22 +719,19 @@
     })();
 
     /* =============================================================
-       BELOW: Featured products — horizontal shopping list
-       Renders from featured-products.json. Each row is one product:
-         thumb-left | source / title / blurb / meta | price / CTA
+       BELOW: Featured products — 4-up square cards (Beam layout)
+       Renders from featured-products.json. Each card:
+         square photo (1:1)  |  italic-serif deck line  |  black pill CTA
 
        Schema (per item):
-         source:    "Amazon" | "TikTok Shop"
-         title:     "..."
-         blurb:     "..."
-         price:     "$24.99"  (optional)
-         badge:     "Top pick" (optional; "" to hide)
-         image:     "bundle/product-1.jpeg"
-         url:       "https://..."
-         meta:      "Free returns"  (optional one-liner shown under blurb)
+         title:  "Glow"
+         blurb:  "Your hormones in balance."   (1-line deck shown on the card)
+         image:  "bundle/beam-1.jpeg"
+         url:    "https://beambeam.com/products/glow"
+         source: "Beam"                          (optional, used in tooltip)
        ============================================================= */
     (function () {
-      var list = document.getElementById('product-list');
+      var grid = document.getElementById('product-grid');
 
       fetch('featured-products.json', {cache: 'no-store'})
         .then(function (r) { return r.ok ? r.json() : []; })
@@ -807,39 +740,27 @@
 
       function render(items) {
         if (!items || !items.length) {
-          list.innerHTML = [
-            '<div class="list-empty">',
+          grid.innerHTML = [
+            '<div class="grid-empty">',
               'No products yet. Add items to <code>featured-products.json</code>, then refresh.',
             '</div>'
           ].join('');
           return;
         }
-        list.innerHTML = items.map(function (it) {
-          var thumb = it.image
-            ? '<div class="row-thumb">'
+        grid.innerHTML = items.map(function (it) {
+          var photo = it.image
+            ? '<div class="card-photo">'
               + '<img src="' + esc(it.image) + '" alt="' + esc(it.title) + '">'
-              + (it.badge ? '<div class="row-badge">' + esc(it.badge) + '</div>' : '')
               + '</div>'
-            : '<div class="row-thumb empty"></div>';
-          var meta = it.meta
-            ? '<div class="row-meta">' + esc(it.meta) + '</div>'
-            : '';
-          var price = it.price
-            ? '<div class="row-price">' + esc(it.price) + '</div>'
-            : '';
+            : '<div class="card-photo empty"></div>';
+          var ctaText = it.source
+            ? 'Shop ' + esc(it.source)
+            : 'Shop now';
           return [
-            '<a class="product-row" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
-              thumb,
-              '<div class="row-body">',
-                '<div class="row-source">' + esc(it.source || 'Store') + '</div>',
-                '<div class="row-title">' + esc(it.title || 'Untitled') + '</div>',
-                '<div class="row-blurb">' + esc(it.blurb || '') + '</div>',
-                meta,
-              '</div>',
-              '<div class="row-action">',
-                price,
-                '<span class="row-cta">View on ' + esc(it.source || 'store') + '</span>',
-              '</div>',
+            '<a class="product-card" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
+              photo,
+              '<div class="card-deck">' + esc(it.blurb || it.title || '') + '</div>',
+              '<span class="card-cta">' + ctaText + '</span>',
             '</a>'
           ].join('');
         }).join('');

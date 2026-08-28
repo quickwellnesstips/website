@@ -15,6 +15,7 @@
       --ink-mid: #5a5a5a;
       --ink-muted: #8a8a8a;
       --rule: #ececec;
+      --rule-strong: #c8ccd6;
       --accent: #24A3BE;
       --accent-deep: #1b8499;
 
@@ -82,6 +83,25 @@
     ul, ol { padding-left: 22px; margin: 0 0 16px 0; }
     li { margin-bottom: 8px; }
     strong { font-weight: 600; color: var(--ink); }
+    .callout {
+      background: #f0fbfc;
+      border: 1px solid #bfe6ea;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 0 0 36px 0;
+      font-size: 15px;
+    }
+    .callout strong { display: block; margin-bottom: 6px; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-deep); }
+    .toc {
+      background: #f7f8fa;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 0 0 36px 0;
+    }
+    .toc h2 { border: 0; margin: 0 0 10px 0; padding: 0; }
+    .toc ol { margin: 0; padding-left: 20px; }
+    .toc a { border: 0; }
     .back {
       display: inline-block;
       margin-top: 36px;
@@ -114,31 +134,85 @@
   <main>
     <div class="wrap">
       <h1>Affiliate <em style="font-family:var(--serif); font-style:italic; color:var(--accent); font-weight:500;">disclosure</em></h1>
-      <p class="lede">A plain-English explanation of how we earn money when you click the product links on this site, and a promise about which products make it onto the page.</p>
+      <p class="lede">A detailed explanation of how we earn money when you click the product links on this site, how those relationships work, and the promises we make about what ends up on the page. Last updated August 2026.</p>
 
-      <h2>Amazon Associates program</h2>
-      <p>QuickWellnessTips is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by linking to Amazon.com and affiliated sites.</p>
-      <p>When you click an Amazon link on this site and purchase a product within a short window, Amazon pays us a small referral fee. The price you pay is unchanged. You pay the same as if you'd gone to Amazon directly.</p>
+      <div class="callout">
+        <strong>The short version</strong>
+        As an Amazon Associate and a participant in other affiliate programs, QuickWellnessTips earns from qualifying purchases made through links on this Site. The price you pay never changes because of this — you pay the same as if you'd gone directly to the retailer.
+      </div>
 
-      <h2>Other affiliate programs</h2>
-      <p>We are also participants in additional affiliate networks, including the TikTok Shop Affiliate Program. The same principle applies: when you tap through from one of our product cards and complete a purchase, we may earn a commission. Same price for you, no markup from us, no extra code to enter, no special link to follow.</p>
+      <div class="toc">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#purpose">Purpose of this disclosure</a></li>
+          <li><a href="#ftc">FTC compliance</a></li>
+          <li><a href="#amazon">Amazon Associates Program</a></li>
+          <li><a href="#tiktok">TikTok Shop Affiliate Program</a></li>
+          <li><a href="#other">Other and future affiliate programs</a></li>
+          <li><a href="#how-it-works">How affiliate links actually work</a></li>
+          <li><a href="#promise">What we promise</a></li>
+          <li><a href="#choosing">How product cards are chosen</a></li>
+          <li><a href="#sponsorship">Sponsored content and gifted products</a></li>
+          <li><a href="#books">Book purchases</a></li>
+          <li><a href="#no-guarantee">No guarantee of product performance</a></li>
+          <li><a href="#pricing">Pricing and availability</a></li>
+          <li><a href="#related">Related policies</a></li>
+          <li><a href="#changes">Changes to this disclosure</a></li>
+          <li><a href="#contact">Questions</a></li>
+        </ol>
+      </div>
 
-      <h2>What we promise</h2>
+      <h2 id="purpose">Purpose of this disclosure</h2>
+      <p>This page explains, in full, how QuickWellnessTips ("QuickWellnessTips," "we," "us," "our") makes money from the product links on quickwellnesstips.com (the "Site"), consistent with the Federal Trade Commission's guidelines on endorsements and affiliate marketing. We believe you should always know when a recommendation comes with a financial relationship attached, so you can weigh it accordingly. This disclosure should be read together with our <a href="privacy.html">Privacy Policy</a>, <a href="disclaimer.html">Medical Disclaimer</a>, and <a href="terms.html">Terms of Service</a>.</p>
+
+      <h2 id="ftc">FTC compliance</h2>
+      <p>The FTC requires that any material connection between a publisher and the brands or retailers it links to be clearly and conspicuously disclosed. In line with that requirement: product links in our Featured section and elsewhere on the Site may be affiliate links, meaning we may earn a commission on qualifying purchases made through them, at no additional cost to you. This disclosure applies to every affiliate link on the Site, whether or not it is individually labeled.</p>
+
+      <h2 id="amazon">Amazon Associates Program</h2>
+      <p>QuickWellnessTips is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com and affiliated sites. As an Amazon Associate, we earn from qualifying purchases.</p>
+      <p>When you click an Amazon link on this Site and purchase a product within Amazon's applicable referral window, Amazon pays us a small commission. This applies not only to the specific product you clicked on, but, under Amazon's program terms, can extend to other items you add to your cart during that same shopping session. The price you pay is unchanged — you pay the same as if you had navigated to Amazon directly without going through our link.</p>
+
+      <h2 id="tiktok">TikTok Shop Affiliate Program</h2>
+      <p>We are also a participant in the TikTok Shop Affiliate Program. The same core principle applies: when you tap through from one of our product cards or social posts and complete a purchase on TikTok Shop, we may earn a commission from that platform. As with Amazon, this comes at no additional cost to you — the price you pay is the price set by the seller on TikTok Shop, with no markup added by us.</p>
+
+      <h2 id="other">Other and future affiliate programs</h2>
+      <p>From time to time, we may join additional affiliate networks or brand-specific affiliate programs beyond Amazon and TikTok Shop. Regardless of which specific program a link belongs to, the same disclosure applies: any product link on this Site may be an affiliate link, and we may be compensated if you make a purchase through it. We are not obligated to individually re-list every affiliate network we join, but this disclosure is intended to cover all of them, present and future, under the same terms described here.</p>
+
+      <h2 id="how-it-works">How affiliate links actually work</h2>
+      <p>When you click an affiliate link, your browser is typically given a small tracking identifier (often stored as a temporary cookie) that tells the retailer's system the referral came from us. If you complete a qualifying purchase within that retailer's tracking window, the retailer pays us a percentage of the sale as a referral fee. We never see your payment information, your name, or your shipping address as part of this process — that data stays entirely with the retailer and is subject to their own privacy policy, not ours. See our <a href="privacy.html">Privacy Policy</a> for more on what we do and don't collect.</p>
+
+      <h2 id="promise">What we promise</h2>
       <ul>
         <li>We <strong>only feature products we actually use ourselves</strong> and genuinely recommend.</li>
-        <li>We never accept payment, free product, or sponsorship in exchange for a placement.</li>
+        <li>We never accept payment, free product, or sponsorship in exchange for a placement in the Featured section.</li>
         <li>We never promote a product we would not recommend to a friend.</li>
+        <li>Our opinions and recommendations are our own and are not dictated, reviewed, or approved by Amazon, TikTok Shop, or any brand before publication.</li>
         <li>If a featured product changes quality, gets discontinued, or becomes something we no longer use, we remove it.</li>
       </ul>
 
-      <h2>How product cards are chosen</h2>
-      <p>Each entry in the Featured section is one we personally picked, then linked to an Amazon or TikTok Shop listing. The link is an affiliate link. If you would prefer to skip the affiliate step, you can always search for the product name directly on the retailer. We hope the curation is worth the trip; if not, you have not lost anything either way.</p>
+      <h2 id="choosing">How product cards are chosen</h2>
+      <p>Each entry in the Featured section is one we personally picked, then linked to an Amazon or TikTok Shop listing. The link is an affiliate link. If you would prefer to skip the affiliate step, you can always search for the product name directly on the retailer's site or app — you will not be charged more or less either way. We hope the curation is worth the trip; if not, you have not lost anything by using our link instead of searching yourself.</p>
 
-      <h2>Book purchases</h2>
-      <p>The digital library is sold through our own storefront (the "Buy the Bundle" link in the top right). That is a direct sale. There is no affiliate component. The library contains no affiliate links inside the PDFs.</p>
+      <h2 id="sponsorship">Sponsored content and gifted products</h2>
+      <p>As of the date at the top of this page, QuickWellnessTips does not run paid or sponsored placements, and no brand has paid for or provided free product in exchange for inclusion on this Site. If that ever changes, any sponsored content, paid placement, or product provided to us free of charge in exchange for coverage will be clearly and separately labeled as such at the point where it appears, in addition to this general affiliate disclosure.</p>
 
-      <h2>Questions</h2>
-      <p>If you have a question about a recommendation, or you want to flag a link that isn't working, email us at <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a>. We read everything.</p>
+      <h2 id="books">Book purchases</h2>
+      <p>The digital e-book library is sold through our own storefront (the "Buy the Bundle" link). That is a direct sale between you and QuickWellnessTips, processed by our checkout provider, Beacons. There is no affiliate component to that transaction, and the library itself contains no affiliate links inside the PDFs.</p>
+
+      <h2 id="no-guarantee">No guarantee of product performance</h2>
+      <p>Our recommendation of a product reflects our own personal experience and opinion, not a guarantee that it will work the same way for you. We do not manufacture, test, or independently verify the products we link to, and we are not responsible for their quality, safety, or performance. See our <a href="disclaimer.html">Medical Disclaimer</a> for more on the limits of any product-related content on this Site, particularly for supplements and wellness products.</p>
+
+      <h2 id="pricing">Pricing and availability</h2>
+      <p>Prices, availability, and product details shown on Amazon, TikTok Shop, or any other retailer are controlled entirely by that retailer and can change at any time without notice to us. We make no guarantee that the price or availability you see when you click through will match what was true when we originally featured the product, and we are not responsible for pricing errors, stock issues, or listing changes made by a third-party retailer.</p>
+
+      <h2 id="related">Related policies</h2>
+      <p>This disclosure works alongside our other policies: our <a href="privacy.html">Privacy Policy</a> covers what information is collected when you interact with the Site and its links, our <a href="disclaimer.html">Medical Disclaimer</a> covers the informational limits of any health or wellness content and product mentions, and our <a href="terms.html">Terms of Service</a> covers the rules for using the Site as a whole.</p>
+
+      <h2 id="changes">Changes to this disclosure</h2>
+      <p>We may update this disclosure from time to time to reflect new affiliate relationships, changes in FTC guidance, or changes in how we operate the Site. When we do, we'll update the "last updated" date at the top of this page.</p>
+
+      <h2 id="contact">Questions</h2>
+      <p>If you have a question about a recommendation, want to know whether a specific link is an affiliate link, or want to flag a link that isn't working, email us at <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a>. We read everything.</p>
 
       <a class="back" href="index.html">&larr; Back to the library</a>
     </div>

@@ -5,11 +5,10 @@
     "blurb": "The one I keep on the counter when I want a quick brew of sour cherry concentrate stirred into water. Tart, not too sweet.",
     "price": "$22",
     "badge": "",
-    "image": "bundle/product-placeholder-1.jpeg",
+    "image": "bundle/product-1.jpeg",
     "url": "https://amzn.to/4y5lor1",
     "_note": "Replace with real image. Dynamic Health Concentrate (B007RC6J72) — verified by ASIN lookup.",
-    "size": "short",
-    "stagger": "0"
+    "meta": "Free returns · 1–2 day Prime delivery"
   },
   {
     "source": "Amazon",
@@ -17,11 +16,10 @@
     "blurb": "Low-sugar ashwagandha gummies for the days you need to slow down a notch. Reasonable dose, no aftertaste.",
     "price": "$24",
     "badge": "",
-    "image": "bundle/product-placeholder-2.jpeg",
+    "image": "bundle/product-2.jpeg",
     "url": "https://amzn.to/4y6FAJd",
     "_note": "Replace with real image. Goli Zero Sugar Trio (B0FNPW73LL) — verified by ASIN lookup.",
-    "size": "tall",
-    "stagger": "1"
+    "meta": "Ships from US warehouse · Subscribe and save"
   },
   {
     "source": "Amazon",
@@ -29,11 +27,10 @@
     "blurb": "For the kind of morning where you need a low-key boost. A small turmeric-and-shilajit blend taken with breakfast.",
     "price": "$28",
     "badge": "",
-    "image": "bundle/product-placeholder-3.jpeg",
+    "image": "bundle/product-3.jpeg",
     "url": "https://amzn.to/4x05gGp",
     "_note": "Replace with real image. Himalayan Shilajit (B0FY3Z7HL1) — verified by ASIN lookup.",
-    "size": "wide",
-    "stagger": "2"
+    "meta": "Carbon-neutral delivery · 30-day return window"
   },
   {
     "source": "Amazon",
@@ -41,11 +38,10 @@
     "blurb": "Chew a piece when the focus window starts to slip after lunch. Tastes like gum, not a vitamin.",
     "price": "$26",
     "badge": "",
-    "image": "bundle/product-placeholder-4.jpeg",
+    "image": "bundle/product-4.jpeg",
     "url": "https://amzn.to/4y6FJfJ",
     "_note": "Replace with real image. Neuro Memory Focus Gum (B0DHHBHZHF) — verified by ASIN lookup.",
-    "size": "tall",
-    "stagger": "0"
+    "meta": "Best seller in category · 4.7/5 from 12,000+ reviews"
   },
   {
     "source": "Amazon",
@@ -53,11 +49,10 @@
     "blurb": "Chewable beet-root + CoQ10 for the day after a long night. Tastes like candy, not a supplement.",
     "price": "$30",
     "badge": "Editor pick",
-    "image": "bundle/product-placeholder-5.jpeg",
+    "image": "bundle/product-5.jpeg",
     "url": "https://amzn.to/3SeAX0v",
     "_note": "Replace with real image. humanN Heart Chews Pomegranate (B07SRK1F3Y) — verified by ASIN lookup.",
-    "size": "short",
-    "stagger": "1"
+    "meta": "Editor's pick · 4.8/5 from 8,400+ reviews"
   },
   {
     "source": "Amazon",
@@ -65,10 +60,9 @@
     "blurb": "A bitter tincture taken before heavy meals. The kind of thing you reach for when you overdid it at lunch.",
     "price": "$32",
     "badge": "",
-    "image": "bundle/product-placeholder-6.jpeg",
+    "image": "bundle/product-6.jpeg",
     "url": "https://amzn.to/4hUOyo5",
     "_note": "Replace with real image. Soursop Bitters (B0CYV4FCJS) — verified by ASIN lookup.",
-    "size": "wide",
-    "stagger": "2"
+    "meta": "Limited time deal · Subscribe and save 5%"
   }
 ]

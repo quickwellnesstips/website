@@ -76,14 +76,5 @@
     "image": "bundle/product-5.jpeg",
     "url": "https://amzn.to/3SeAX0v",
     "layout": "grid"
-  },
-  {
-    "source": "Amazon",
-    "title": "Pure Encapsulations NeuroPure",
-    "blurb": "Cognitive support — a daily nootropic supplement with research-backed ingredients.",
-    "price": "$48",
-    "image": "bundle/product-8.jpeg",
-    "url": "https://amzn.to/4xj8yWa",
-    "_note": "8th Amazon product — placeholder for the new Pure Encapsulations bottle image. Replace with real product info when ready."
   }
 ]

@@ -85,14 +85,5 @@
     "image": "bundle/product-6.jpeg",
     "url": "https://amzn.to/4hUOyo5",
     "layout": "grid"
-  },
-  {
-    "source": "Amazon",
-    "title": "Hydration Bottle",
-    "blurb": "A simple 32oz insulated bottle for the day you keep refilling it.",
-    "price": "$28",
-    "image": "bundle/product-placeholder-7.jpeg",
-    "url": "https://amzn.to/4xj8yWa",
-    "layout": "grid"
   }
 ]

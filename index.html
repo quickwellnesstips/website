@@ -182,7 +182,7 @@
        full book. Reinforces the buy-now CTA in the right column. */
     .book-tile .sample-tag {
       position: absolute;
-      top: 16px; right: 8px;
+      bottom: 8px; right: 8px;
       padding: 3px 8px;
       background: var(--accent);
       color: #fff;
@@ -360,7 +360,7 @@
       display: flex; align-items: center; justify-content: center;
       gap: 8px;
       width: 100%;
-      background: var(--ink);
+      background: var(--accent-4);
       color: #ffffff;
       font-family: var(--sans);
       font-size: 15px;
@@ -374,7 +374,7 @@
       box-shadow: 0 8px 18px -6px rgba(0,0,0,0.30);
     }
     .offer .buy-btn:hover {
-      background: var(--accent);
+      background: #ff8f00;
       transform: translateY(-1px);
     }
     .offer .bundles {
@@ -568,8 +568,8 @@
     .featured-section .section-title em { color: var(--accent-4); }
     .featured-section .product-card .card-cta { background: var(--accent-5); }
     .featured-section .product-card:hover .card-cta { background: #4a148c; }
-    .featured-section .product-card .card-cta.card-cta-amazon { background: #1e88e5; }
-    .featured-section .product-card:hover .card-cta.card-cta-amazon { background: #1565c0; }
+    .featured-section .product-card .card-cta.card-cta-amazon { background: var(--accent-4); }
+    .featured-section .product-card:hover .card-cta.card-cta-amazon { background: #ff8f00; }
     .recipes-section .section-eyebrow { color: var(--accent-2); }
     .recipes-section .section-title em { color: var(--accent-2); }
     .recipes-section .recipe-tag { color: var(--accent-2); }
@@ -753,14 +753,14 @@
     .buy-pill {
       display: inline-flex; align-items: center;
       padding: 10px 18px;
-      /* Warm clay color (no teal/blue) — varied palette throughout */
-      background: #1e88e5;
+      /* Bright amber — matches the Featured section accent */
+      background: var(--accent-4);
       color: #ffffff;
       font-weight: 600; font-size: 13.5px;
       border-radius: 999px;
       transition: background .2s ease;
     }
-    .buy-pill:hover { background: #1565c0; }
+    .buy-pill:hover { background: #ff8f00; }
   </style>
 </head>
 <body>
@@ -807,7 +807,6 @@
           <div class="price-meta" id="offer-price-meta">Single payment. Instant access.</div>
 
           <a class="buy-btn" id="offer-btn" href="#" target="_blank" rel="noopener">Buy the Bundle &rarr;</a>
-          <div class="bundles" id="offer-bundles"></div>
         </div>
       </div>
     </div>
@@ -931,14 +930,6 @@
             document.getElementById('offer-btn').href = cfg.beacons_url;
             var headerBtn = document.getElementById('header-buy-btn');
             if (headerBtn) headerBtn.href = cfg.beacons_url;
-          }
-          if (cfg.bundles_to_offer && cfg.bundles_to_offer.length) {
-            document.getElementById('offer-bundles').innerHTML =
-              cfg.bundles_to_offer.map(function (b) {
-                var parts = b.split(' ');
-                var price = parts.shift();
-                return '<span><strong>' + esc(price) + '</strong> ' + esc(parts.join(' ')) + '</span>';
-              }).join('');
           }
         });
     })();

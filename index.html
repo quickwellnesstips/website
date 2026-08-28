@@ -365,16 +365,19 @@
     }
 
     /* ============================================================
-       FEATURED PRODUCTS — horizontal scrolling shopping rail
-       (Amazon-style "Shop this section" — a row you can drag/scroll)
+       FEATURED PRODUCTS — magazine-rack shopping spread
+       6 product tiles in a horizontal row, each with a unique
+       width/height so the page reads like a fashion magazine
+       (some tiles taller, some wider, staggered) instead of a
+       grid of identical cards.
        ============================================================ */
     .featured-section {
-      padding: 72px 0 80px;
-      background: #fafafa;
+      padding: 72px 0 96px;
+      background: #ffffff;
     }
     .section-head {
       max-width: 720px;
-      margin: 0 auto 36px;
+      margin: 0 auto 40px;
       text-align: center;
     }
     .section-eyebrow {
@@ -411,165 +414,180 @@
       margin: 0;
     }
 
-    /* The rail container — overflow auto with snap, plus scrollbar styling */
-    .rail-toolbar {
-      max-width: 1180px;
-      margin: 0 auto 16px;
-      padding: 0 36px;
+    /* The horizontal strip container — full-bleed with a small
+       horizontal scroll. Items have explicit varying flex-basis
+       (260 / 200 / 240 / 280 / 200 / 240) so the row never looks
+       like a uniform grid. Vertically they can be staggered with
+       margin-top too (set per-item via inline style). */
+    .product-strip {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: var(--sans);
-      font-size: 12.5px;
-      color: var(--ink-muted);
-    }
-    .rail-toolbar .scroll-hint {
-      display: inline-flex; align-items: center; gap: 8px;
-    }
-    .rail-toolbar .arrows {
-      display: inline-flex; gap: 4px;
-    }
-    .rail-toolbar .arrow-btn {
-      width: 36px; height: 36px;
-      border: 1px solid var(--rule-strong);
-      border-radius: 999px;
-      background: #ffffff;
-      color: var(--ink);
-      font-size: 18px;
-      cursor: pointer;
-      transition: background .15s ease, border-color .15s ease;
-      display: inline-flex; align-items: center; justify-content: center;
-    }
-    .rail-toolbar .arrow-btn:hover { background: var(--accent-tint); border-color: var(--accent); color: var(--accent-deep); }
-    .rail-toolbar .arrow-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-    /* The horizontal rail of product cards */
-    .product-rail {
-      display: flex;
+      align-items: flex-start;
       gap: 18px;
+      padding: 4px 36px 28px;
       overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-padding: 36px;
-      padding: 8px 36px 24px;
       scrollbar-width: thin;
-      scrollbar-color: var(--rule-strong) transparent;
+      scrollbar-color: var(--rule) transparent;
     }
-    .product-rail::-webkit-scrollbar { height: 8px; }
-    .product-rail::-webkit-scrollbar-track { background: transparent; }
-    .product-rail::-webkit-scrollbar-thumb {
-      background: var(--rule-strong);
-      border-radius: 4px;
+    .product-strip::-webkit-scrollbar { height: 6px; }
+    .product-strip::-webkit-scrollbar-track { background: transparent; }
+    .product-strip::-webkit-scrollbar-thumb {
+      background: var(--rule);
+      border-radius: 3px;
     }
-    .product-rail::-webkit-scrollbar-thumb:hover { background: var(--ink-muted); }
 
-    /* Per-card — wider so the title + thumbnail read at a glance */
-    .product-card {
-      flex: 0 0 240px;
-      scroll-snap-align: start;
+    /* Per-tile base — no shadow, no border, just a soft divider.
+       Each tile is "tall portrait" (3:4) by default with the
+       item's own .tile-tall / .tile-short / .tile-wide variant
+       in the data-attribute controlling the proportions. */
+    .product-tile {
+      flex: 0 0 auto;
+      width: 220px;
       background: #ffffff;
       border: 1px solid var(--rule);
-      border-radius: 14px;
+      border-radius: 4px;
       overflow: hidden;
-      transition: border-color .2s ease, transform .25s ease, box-shadow .25s ease;
       display: flex; flex-direction: column;
       text-decoration: none;
       color: inherit;
-    }
-    .product-card:hover {
-      border-color: var(--rule-strong);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px -10px rgba(0,0,0,0.10);
-    }
-    .product-thumb {
-      aspect-ratio: 1/1;
-      background: #f5f5f5;
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--ink-muted);
-      font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      transition: border-color .2s ease, transform .3s cubic-bezier(.2,.7,.2,1);
       position: relative;
     }
-    .product-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .product-thumb.empty {
+    .product-tile:hover {
+      border-color: var(--ink);
+      transform: translateY(-4px);
+    }
+    .product-tile .tile-img {
+      background: #fafafa;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Three tile size variants. Each gives a different visual rhythm. */
+    .product-tile.size-tall .tile-img { aspect-ratio: 3/4; }
+    .product-tile.size-short .tile-img { aspect-ratio: 1/1; }
+    .product-tile.size-wide .tile-img { aspect-ratio: 4/3; }
+
+    .product-tile .tile-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+    .product-tile:hover .tile-img img { transform: scale(1.04); }
+    .product-tile .tile-img.empty {
       background: linear-gradient(135deg, var(--accent-tint) 0%, #f0f7f9 100%);
     }
-    /* Optional "Hot" / "New" badge upper-right corner */
-    .product-thumb .badge {
+
+    /* Width modulation by variant — 200 / 240 / 280 px. Each item
+       in the data picks one, so the row never reads as uniform. */
+    .product-tile.size-tall  { width: 220px; }
+    .product-tile.size-short { width: 240px; }
+    .product-tile.size-wide  { width: 280px; }
+
+    /* Vertical stagger — items push down by 0, 32, 64px from the
+       top of the row, creating a "shop display" look where tall
+       cards are aligned baseline. The 4th card has no offset; the
+       pattern is 0 / 32 / 64 / 0 / 32 / 64. */
+    .product-tile.stagger-0 { margin-top: 0; }
+    .product-tile.stagger-1 { margin-top: 32px; }
+    .product-tile.stagger-2 { margin-top: 64px; }
+
+    /* Badges on the tile image (top-left or top-right) */
+    .product-tile .badge {
       position: absolute;
-      top: 8px; right: 8px;
+      top: 10px; left: 10px;
       background: var(--ink);
       color: #ffffff;
       font-family: var(--sans);
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 0.10em;
+      font-size: 9.5px; font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       padding: 3px 8px;
-      border-radius: 4px;
+      border-radius: 2px;
+      letter-spacing: 0.10em;
     }
-    .product-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
-    .product-source {
-      font-family: var(--sans);
-      font-size: 10.5px; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-    .product-title {
-      font-family: var(--serif);
-      font-size: 17px; font-weight: 600; line-height: 1.25;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      margin: 0 0 8px 0;
-      /* Show at most 2 lines so cards align */
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .product-blurb {
-      font-family: var(--sans);
-      font-size: 12.5px; line-height: 1.5;
+    .product-tile .source-tag {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: rgba(255,255,255,0.92);
       color: var(--ink-mid);
-      margin: 0 0 12px 0;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-family: var(--sans);
+      font-size: 9.5px; font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+
+    .product-tile .tile-body {
+      padding: 14px 16px 18px;
+      display: flex; flex-direction: column;
       flex: 1;
     }
-    .product-price {
+    .product-tile .tile-title {
       font-family: var(--serif);
-      font-size: 17px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 0 0 6px 0;
+    }
+    .product-tile .tile-blurb {
+      font-family: var(--sans);
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--ink-mid);
+      margin: 0 0 10px 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-tile .tile-price {
+      font-family: var(--serif);
+      font-size: 16px;
       font-weight: 600;
       color: var(--ink);
       letter-spacing: -0.01em;
-      margin: 0 0 8px 0;
+      margin: auto 0 0 0;       /* push price to bottom for alignment */
     }
-    .product-link {
+    .product-tile .tile-cta {
       font-family: var(--sans);
-      font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
       color: var(--accent);
       display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 4px;
     }
-    .product-link::after { content: "→"; transition: transform .2s ease; }
-    .product-card:hover .product-link::after { transform: translateX(3px); }
+    .product-tile .tile-cta::after {
+      content: "→";
+      transition: transform .2s ease;
+    }
+    .product-tile:hover .tile-cta::after { transform: translateX(3px); }
 
-    .product-empty {
+    /* On wide tiles, body sits beside the image instead of below */
+    .product-tile.size-wide {
+      flex-direction: row;
+    }
+    .product-tile.size-wide .tile-img {
+      width: 50%; flex: 0 0 50%; aspect-ratio: 1/1;
+    }
+    .product-tile.size-wide .tile-body { width: 50%; flex: 1; }
+
+    /* Empty state for the strip */
+    .strip-empty {
       flex: 1; min-width: 100%;
       text-align: center;
       padding: 60px 20px;
       background: #ffffff;
       border: 1px dashed var(--rule-strong);
-      border-radius: 14px;
+      border-radius: 4px;
       color: var(--ink-muted);
       font-family: var(--sans);
       font-size: 14px;
       line-height: 1.6;
     }
-    .product-empty code {
+    .strip-empty code {
       background: var(--paper);
       padding: 2px 8px;
-      border-radius: 4px;
+      border-radius: 3px;
       font-family: "SF Mono", Menlo, monospace;
       font-size: 12.5px;
       color: var(--accent-deep);
@@ -577,7 +595,7 @@
 
     .disclosure {
       max-width: 1100px;
-      margin: 28px auto 0;
+      margin: 56px auto 0;
       padding: 14px 20px;
       background: rgba(0,0,0,0.02);
       border-left: 3px solid var(--rule);
@@ -592,8 +610,7 @@
 
     @media (max-width: 980px) {
       .featured-section { padding: 48px 0 56px; }
-      /* On mobile the rail scrolls horizontally (touch) instead of reflowing */
-      .product-card { flex: 0 0 200px; }
+      .product-strip { padding: 4px 24px 24px; gap: 14px; }
     }
 
     /* ----- FOOTER ----- */
@@ -688,15 +705,7 @@
         <p class="section-deck">A curated shelf of physical things the books mention. When you buy through these links, we earn a small commission at no cost to you.</p>
       </div>
 
-      <div class="rail-toolbar">
-        <span class="scroll-hint">Scroll &rarr;</span>
-        <span class="arrows">
-          <button type="button" class="arrow-btn" id="rail-prev" aria-label="Scroll left">&larr;</button>
-          <button type="button" class="arrow-btn" id="rail-next" aria-label="Scroll right">&rarr;</button>
-        </span>
-      </div>
-
-      <div class="product-rail" id="product-rail"></div>
+      <div class="product-strip" id="product-strip"></div>
 
       <div class="disclosure">
         <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and other affiliate programs. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
@@ -808,19 +817,22 @@
     })();
 
     /* =============================================================
-       BELOW: Featured products — horizontal scrolling rail
-       Populates from featured-products.json.
+       BELOW: Featured products — magazine-rack shopping spread
+       Populates from featured-products.json. Each tile picks its own
+       size variant + vertical stagger so the row reads like a
+       curated shopping page, not a uniform grid.
+
        Schema:
          [{"source":"Amazon"|"TikTok Shop",
            "title":"...", "blurb":"...",
-           "price":"$24.99", "badge":"Hot",  // optional
+           "price":"$24.99",
+           "badge":"Top pick",          // optional; "" to hide
+           "size":"tall"|"short"|"wide", // tile shape
+           "stagger":"0"|"1"|"2",       // vertical offset
            "image":"<path>|"", "url":"..."}, ...]
        ============================================================= */
     (function () {
-      var rail = document.getElementById('product-rail');
-      var prevBtn = document.getElementById('rail-prev');
-      var nextBtn = document.getElementById('rail-next');
-      var SCROLL_BY = 540;
+      var strip = document.getElementById('product-strip');
 
       fetch('featured-products.json', {cache: 'no-store'})
         .then(function (r) { return r.ok ? r.json() : []; })
@@ -829,59 +841,38 @@
 
       function render(items) {
         if (!items || !items.length) {
-          rail.innerHTML = [
-            '<div class="product-empty">',
-              'No products yet. Add items to <code>featured-products.json</code> in the site root, then refresh.',
+          strip.innerHTML = [
+            '<div class="strip-empty">',
+              'No products yet. Add items to <code>featured-products.json</code>, then refresh.',
             '</div>'
           ].join('');
-          if (prevBtn) prevBtn.disabled = true;
-          if (nextBtn) nextBtn.disabled = true;
           return;
         }
-        rail.innerHTML = items.map(function (it) {
+        strip.innerHTML = items.map(function (it) {
+          var size = ['tall', 'short', 'wide'].indexOf(it.size) >= 0 ? it.size : 'tall';
+          var stagger = ['0', '1', '2'].indexOf(String(it.stagger)) >= 0 ? String(it.stagger) : '0';
           var thumb = it.image
-            ? '<div class="product-thumb"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '">'
+            ? '<div class="tile-img">'
+              + '<img src="' + esc(it.image) + '" alt="' + esc(it.title) + '">'
               + (it.badge ? '<div class="badge">' + esc(it.badge) + '</div>' : '')
+              + '<div class="source-tag">' + esc(it.source || 'Store') + '</div>'
               + '</div>'
-            : '<div class="product-thumb empty">No Image</div>';
+            : '<div class="tile-img empty"></div>';
           var priceHtml = it.price
-            ? '<div class="product-price">' + esc(it.price) + '</div>'
+            ? '<div class="tile-price">' + esc(it.price) + '</div>'
             : '';
           return [
-            '<a class="product-card" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
+            '<a class="product-tile size-' + size + ' stagger-' + stagger + '" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
               thumb,
-              '<div class="product-body">',
-                '<div class="product-source">' + esc(it.source || 'Pick') + '</div>',
-                '<h3 class="product-title">' + esc(it.title || 'Untitled') + '</h3>',
-                '<p class="product-blurb">' + esc(it.blurb || '') + '</p>',
+              '<div class="tile-body">',
+                '<div class="tile-title">' + esc(it.title || 'Untitled') + '</div>',
+                '<div class="tile-blurb">' + esc(it.blurb || '') + '</div>',
                 priceHtml,
-                '<span class="product-link">View on ' + esc(it.source || 'store') + '</span>',
+                '<span class="tile-cta">View</span>',
               '</div>',
             '</a>'
           ].join('');
         }).join('');
-
-        // Wire the prev / next buttons to scroll the rail
-        function updateArrows() {
-          if (!prevBtn || !nextBtn) return;
-          var maxScroll = rail.scrollWidth - rail.clientWidth;
-          prevBtn.disabled = rail.scrollLeft <= 5;
-          nextBtn.disabled = rail.scrollLeft >= maxScroll - 5;
-        }
-        if (prevBtn) {
-          prevBtn.addEventListener('click', function () {
-            rail.scrollBy({left: -SCROLL_BY, behavior: 'smooth'});
-          });
-        }
-        if (nextBtn) {
-          nextBtn.addEventListener('click', function () {
-            rail.scrollBy({left: SCROLL_BY, behavior: 'smooth'});
-          });
-        }
-        rail.addEventListener('scroll', updateArrows, {passive: true});
-        window.addEventListener('resize', updateArrows);
-        // Wait for layout, then set initial state
-        setTimeout(updateArrows, 50);
       }
     })();
 

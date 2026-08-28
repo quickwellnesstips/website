@@ -7,7 +7,9 @@
     "badge": "",
     "image": "bundle/product-placeholder-1.jpeg",
     "url": "https://amzn.to/4y5lor1",
-    "_note": "Replace with real image. Dynamic Health Concentrate (B007RC6J72) — verified by ASIN lookup."
+    "_note": "Replace with real image. Dynamic Health Concentrate (B007RC6J72) — verified by ASIN lookup.",
+    "size": "short",
+    "stagger": "0"
   },
   {
     "source": "Amazon",
@@ -17,7 +19,9 @@
     "badge": "",
     "image": "bundle/product-placeholder-2.jpeg",
     "url": "https://amzn.to/4y6FAJd",
-    "_note": "Replace with real image. Goli Zero Sugar Trio (B0FNPW73LL) — verified by ASIN lookup."
+    "_note": "Replace with real image. Goli Zero Sugar Trio (B0FNPW73LL) — verified by ASIN lookup.",
+    "size": "tall",
+    "stagger": "1"
   },
   {
     "source": "Amazon",
@@ -27,7 +31,9 @@
     "badge": "",
     "image": "bundle/product-placeholder-3.jpeg",
     "url": "https://amzn.to/4x05gGp",
-    "_note": "Replace with real image. Himalayan Shilajit (B0FY3Z7HL1) — verified by ASIN lookup."
+    "_note": "Replace with real image. Himalayan Shilajit (B0FY3Z7HL1) — verified by ASIN lookup.",
+    "size": "wide",
+    "stagger": "2"
   },
   {
     "source": "Amazon",
@@ -37,7 +43,9 @@
     "badge": "",
     "image": "bundle/product-placeholder-4.jpeg",
     "url": "https://amzn.to/4y6FJfJ",
-    "_note": "Replace with real image. Neuro Memory Focus Gum (B0DHHBHZHF) — verified by ASIN lookup."
+    "_note": "Replace with real image. Neuro Memory Focus Gum (B0DHHBHZHF) — verified by ASIN lookup.",
+    "size": "tall",
+    "stagger": "0"
   },
   {
     "source": "Amazon",
@@ -47,7 +55,9 @@
     "badge": "Editor pick",
     "image": "bundle/product-placeholder-5.jpeg",
     "url": "https://amzn.to/3SeAX0v",
-    "_note": "Replace with real image. humanN Heart Chews Pomegranate (B07SRK1F3Y) — verified by ASIN lookup."
+    "_note": "Replace with real image. humanN Heart Chews Pomegranate (B07SRK1F3Y) — verified by ASIN lookup.",
+    "size": "short",
+    "stagger": "1"
   },
   {
     "source": "Amazon",
@@ -57,6 +67,8 @@
     "badge": "",
     "image": "bundle/product-placeholder-6.jpeg",
     "url": "https://amzn.to/4hUOyo5",
-    "_note": "Replace with real image. Soursop Bitters (B0CYV4FCJS) — verified by ASIN lookup."
+    "_note": "Replace with real image. Soursop Bitters (B0CYV4FCJS) — verified by ASIN lookup.",
+    "size": "wide",
+    "stagger": "2"
   }
 ]

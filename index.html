@@ -10,28 +10,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Warm-palette — no teal/blue dominance. Each section gets its
-         own accent so the page reads as varied, not monochrome. */
+      /* Multi-hue palette: cool + warm mixed, no brown/orange dominance.
+         Every section + every button gets a distinct, vibrant color so
+         the page reads as flowing + varied, not monochrome. */
       --paper:        #ffffff;
-      --ink:          #1a1410;
-      --ink-soft:     #2a241e;
-      --ink-mid:      #5a5048;
-      --ink-muted:    #8a847a;
-      --rule:         #ececec;
-      --rule-strong:  #c8c0b4;
-      --accent:       #b04a1f;          /* warm clay (hero, buttons) */
-      --accent-deep:  #8a3713;
-      --accent-tint:  #f5e8db;
-      --accent-2:     #2e6b3f;          /* forest green (recipes/newsletter) */
-      --accent-2-deep:#1f4a2a;
-      --accent-2-tint:#e0ead5;
-      --accent-3:     #c41e1e;          /* red (active price, sale) */
-      --accent-3-deep:#9a1818;
-      --accent-3-tint:#fbe4e4;
-      --accent-4:     #b58436;          /* mustard (featured) */
-      --accent-4-tint:#f5e9d0;
-      --accent-5:     #5d2a5d;          /* plum (library) */
-      --accent-5-tint:#ede0ee;
+      --ink:          #0a1a2c;
+      --ink-soft:     #1f2d4a;
+      --ink-mid:      #4a5568;
+      --ink-muted:    #7a8595;
+      --rule:         #e8e8ee;
+      --rule-strong:  #c8ccd6;
+      /* Section 1: hero + nav CTA — vibrant blue */
+      --accent:       #1e88e5;
+      --accent-deep:  #1565c0;
+      --accent-tint:  #e3f2fd;
+      /* Section 2: recipes/newsletter — bright teal */
+      --accent-2:     #00acc1;
+      --accent-2-deep:#00838f;
+      --accent-2-tint:#e0f7fa;
+      /* Section 3: offer + active price — hot pink */
+      --accent-3:     #d81b60;
+      --accent-3-deep:#ad1457;
+      --accent-3-tint:#fce4ec;
+      /* Section 4: featured products — bright amber */
+      --accent-4:     #ffb300;
+      --accent-4-tint:#fff8e1;
+      /* Section 5: library + Buy Now button — vivid purple */
+      --accent-5:     #6a1b9a;
+      --accent-5-tint:#f3e5f5;
 
       --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       --serif: "Fraunces", Georgia, "Times New Roman", serif;
@@ -330,7 +336,7 @@
       font-weight: 700;
       letter-spacing: -0.025em;
       /* Red on the active price — high contrast, urgent sale-energy */
-      color: #c41e1e;
+      color: #d81b60;
       line-height: 1;
       margin-bottom: 4px;
     }
@@ -555,11 +561,11 @@
     .featured-section .section-eyebrow { color: var(--accent-4); }
     .featured-section .section-title em { color: var(--accent-4); }
     .featured-section .product-card .card-cta { background: var(--accent-5); }
-    .featured-section .product-card:hover .card-cta { background: #3d1a3d; }
+    .featured-section .product-card:hover .card-cta { background: #4a148c; }
     .recipes-section .section-eyebrow { color: var(--accent-2); }
     .recipes-section .section-title em { color: var(--accent-2); }
     .recipes-section .recipe-tag { color: var(--accent-2); }
-    .recipes-section .newsletter { background: linear-gradient(135deg, #f5e8db 0%, #fff 50%, #e0ead5 100%); border-color: var(--accent-2); }
+    .recipes-section .newsletter { background: linear-gradient(135deg, #e3f2fd 0%, #fff 50%, #fce4ec 100%); border-color: var(--accent-2); }
     .recipes-section .newsletter input[type="email"]:focus { border-color: var(--accent-2); }
     .recipes-section .newsletter button[type="submit"]:hover { background: var(--accent-2); }
     .library-section .lib-header h2 em { color: var(--accent-5); }
@@ -740,13 +746,13 @@
       display: inline-flex; align-items: center;
       padding: 10px 18px;
       /* Warm clay color (no teal/blue) — varied palette throughout */
-      background: #b04a1f;
+      background: #1e88e5;
       color: #ffffff;
       font-weight: 600; font-size: 13.5px;
       border-radius: 999px;
       transition: background .2s ease;
     }
-    .buy-pill:hover { background: #8a3713; }
+    .buy-pill:hover { background: #1565c0; }
   </style>
 </head>
 <body>

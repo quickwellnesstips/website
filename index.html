@@ -91,9 +91,10 @@
     .social-icons a:hover { transform: translateY(-1px); }
     .social-icons a svg { width: 32px; height: 32px; display: block; }
 
-    .social-section { padding: 64px 0; }
-    .social-section .section-eyebrow { color: var(--accent-3); }
-    .social-section .section-title em { color: var(--accent-3); }
+    .social-inline { padding: 20px 0 4px; margin-top: 12px; border-top: 1px solid var(--rule); }
+    .social-inline .section-head { margin-bottom: 18px; }
+    .social-inline .section-eyebrow { color: var(--accent-3); font-size: clamp(22px, 3vw, 30px); }
+    .social-inline .section-title em { color: var(--accent-3); }
     .social-row {
       display: flex; align-items: flex-start; justify-content: center;
       gap: 32px; flex-wrap: wrap;
@@ -858,14 +859,7 @@
 
       <div class="product-grid" id="product-grid"></div>
 
-      <div class="disclosure">
-        <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and the TikTok Shop Affiliate Program. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
-      </div>
-    </div>
-  </section>
-
-  <section id="social" class="social-section">
-    <div class="wrap">
+      <div id="social" class="social-inline">
       <div class="section-head">
         <div class="section-eyebrow">Find us</div>
         <h2 class="section-title">Say hi on <em>social</em>.</h2>
@@ -875,6 +869,11 @@
         <a class="social-badge" href="https://www.instagram.com/quickwellnesstips" target="_blank" rel="noopener"><span class="badge-icon"><svg viewBox="0 0 24 24"><defs><radialGradient id="igGradLg" cx="30%" cy="107%" r="150%"><stop offset="0" stop-color="#fdf497"/><stop offset=".05" stop-color="#fdf497"/><stop offset=".45" stop-color="#fd5949"/><stop offset=".6" stop-color="#d6249f"/><stop offset=".9" stop-color="#285AEB"/></radialGradient></defs><circle cx="12" cy="12" r="12" fill="url(#igGradLg)"/><path fill="#fff" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1.1.4 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.3-2.3.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.3 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1 .1-1.6.2-1.9.3-.5.2-.8.4-1.2.7-.3.3-.6.7-.7 1.2-.1.3-.3.9-.3 1.9-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1 .2 1.6.3 1.9.2.5.4.8.7 1.2.3.3.7.6 1.2.7.3.1.9.3 1.9.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1-.1 1.6-.2 1.9-.3.5-.2.8-.4 1.2-.7.3-.3.6-.7.7-1.2.1-.3.3-.9.3-1.9.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1-.2-1.6-.3-1.9-.2-.5-.4-.8-.7-1.2-.3-.3-.7-.6-1.2-.7-.3-.1-.9-.3-1.9-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.6a5.4 5.4 0 110 10.8 5.4 5.4 0 010-10.8zm0 1.8a3.6 3.6 0 100 7.2 3.6 3.6 0 000-7.2zm5.7-2.5a1.26 1.26 0 110 2.52 1.26 1.26 0 010-2.52z"/></svg></span><span class="badge-label">Instagram</span></a>
         <a class="social-badge" href="https://www.tiktok.com/@quickwellnesstipsinfo" target="_blank" rel="noopener"><span class="badge-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#000000"/><path fill="#ffffff" d="M16.6 5.2c-.9-.8-1.4-1.9-1.5-3.2h-3v13.4a2.6 2.6 0 11-2.2-2.6v-3.1a5.6 5.6 0 105.3 5.6V9.3c1.1.8 2.4 1.3 3.9 1.3V7.6a4.3 4.3 0 01-2.5-2.4z"/></svg></span><span class="badge-label">TikTok</span></a>
         <a class="social-badge" href="https://www.facebook.com/quickwellnesstips" target="_blank" rel="noopener"><span class="badge-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1877F2"/><path fill="#fff" d="M13.5 22v-8.5h2.9l.4-3.4h-3.3V7.9c0-1 .3-1.6 1.7-1.6h1.8V3.3C16.7 3.2 15.7 3 14.6 3c-2.4 0-4 1.5-4 4.2v2.9H7.7v3.4h2.9V22h2.9z"/></svg></span><span class="badge-label">Facebook</span></a>
+      </div>
+      </div>
+
+      <div class="disclosure">
+        <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and the TikTok Shop Affiliate Program. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
       </div>
     </div>
   </section>

@@ -979,11 +979,23 @@
           var photo = it.image
             ? '<div class="card-photo"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '"></div>'
             : '<div class="card-photo empty"></div>';
-          var ctaText = it.source ? 'Shop ' + esc(it.source) : 'Shop now';
+          // Shop Beam cards don't have affiliate links — they point to
+          // the Beam homepage product pages, so show a "Read more" CTA
+          // instead of "Shop Beam" which implies a purchase action.
+          // Amazon cards keep the "Shop on Amazon" framing.
+          var ctaText;
+          if (it.source === 'Amazon') {
+            ctaText = 'Shop on Amazon';
+          } else if (it.source === 'Beam') {
+            ctaText = 'Read more';
+          } else {
+            ctaText = it.source ? 'Shop ' + esc(it.source) : 'Shop now';
+          }
           return [
             '<a class="product-card" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
               photo,
               '<div class="card-deck">' + esc(it.blurb || it.title || '') + '</div>',
+              '<span class="product-source">' + esc(it.source || 'Shop') + '</span>',
               '<span class="card-cta">' + ctaText + '</span>',
             '</a>'
           ].join('');

@@ -592,6 +592,16 @@
     .disclosure strong { font-weight: 600; color: var(--ink-mid); }
     .disclosure a { color: var(--accent); border-bottom: 1px solid currentColor; }
 
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .buy-block { position: static; top: auto; margin-top: 8px; }
+    }
+    @media (max-width: 640px) {
+      .bookshelf { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 420px) {
+      .bookshelf { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 560px) {
       .product-grid { grid-template-columns: 1fr; }
     }

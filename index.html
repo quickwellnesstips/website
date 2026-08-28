@@ -38,6 +38,12 @@
       /* Section 5: library + Buy Now button — vivid purple */
       --accent-5:     #6a1b9a;
       --accent-5-tint:#f3e5f5;
+      /* Extra hues, used only to give each of the 10 book "Sample" tags
+         its own distinct color (no two tiles repeat the same one). */
+      --accent-6:     #43a047;
+      --accent-7:     #e53935;
+      --accent-8:     #3949ab;
+      --accent-9:     #f4511e;
 
       --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
       --serif: "Fraunces", Georgia, "Times New Roman", serif;
@@ -203,11 +209,16 @@
     /* Cycle the "Sample" tag through the site's five accent colors instead
        of every book showing the same one — matches the multi-hue palette
        used across the rest of the page. */
-    .bookshelf .book-tile:nth-child(5n+1) .sample-tag { background: var(--accent); }
-    .bookshelf .book-tile:nth-child(5n+2) .sample-tag { background: var(--accent-2); }
-    .bookshelf .book-tile:nth-child(5n+3) .sample-tag { background: var(--accent-3); }
-    .bookshelf .book-tile:nth-child(5n+4) .sample-tag { background: var(--accent-4); }
-    .bookshelf .book-tile:nth-child(5n+5) .sample-tag { background: var(--accent-5); }
+    .bookshelf .book-tile:nth-child(1)  .sample-tag { background: var(--accent); }
+    .bookshelf .book-tile:nth-child(2)  .sample-tag { background: var(--accent-7); }
+    .bookshelf .book-tile:nth-child(3)  .sample-tag { background: var(--accent-6); }
+    .bookshelf .book-tile:nth-child(4)  .sample-tag { background: var(--accent-5); }
+    .bookshelf .book-tile:nth-child(5)  .sample-tag { background: var(--accent-9); }
+    .bookshelf .book-tile:nth-child(6)  .sample-tag { background: var(--accent-3); }
+    .bookshelf .book-tile:nth-child(7)  .sample-tag { background: var(--accent-8); }
+    .bookshelf .book-tile:nth-child(8)  .sample-tag { background: var(--accent-4); }
+    .bookshelf .book-tile:nth-child(9)  .sample-tag { background: var(--accent-2-deep); }
+    .bookshelf .book-tile:nth-child(10) .sample-tag { background: var(--accent-2); }
     .book-tile .meta { text-align: center; }
     .book-tile .name {
       font-family: var(--sans);
@@ -225,10 +236,6 @@
       color: var(--ink-muted);
       margin-top: 2px;
       max-width: 160px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
 
     /* ---- RIGHT: text-only offer (no photo) ---- */
@@ -493,15 +500,21 @@
       background: linear-gradient(135deg, var(--accent-tint) 0%, #f0f7f9 100%);
     }
 
-    .product-card .card-deck {
+    .product-card .card-text { text-align: center; margin: 0 0 20px 0; }
+    .product-card .card-title {
       font-family: var(--sans);
-      font-size: 12.5px;
-      font-weight: 600;
-      line-height: 1.4;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
       letter-spacing: -0.005em;
       color: var(--ink);
-      text-align: center;
-      margin: 0;
+      margin: 0 0 4px 0;
+    }
+    .product-card .card-blurb {
+      font-family: var(--sans);
+      font-size: 11.5px;
+      line-height: 1.4;
+      color: var(--ink-muted);
     }
 
     /* Push the CTA to the bottom of every card so the pills line up
@@ -771,7 +784,7 @@
         <img src="bundle/qwt-logo-200.png" alt="QuickWellnessTips">
         <span class="name">QuickWellnessTips</span>
       </a>
-      <a class="buy-pill" href="#buy">Buy the Bundle &middot; $19.99</a>
+      <a class="buy-pill" id="header-buy-btn" href="#buy" target="_blank" rel="noopener">Buy the Bundle &middot; $19.99</a>
     </div>
   </header>
 
@@ -843,6 +856,8 @@
         <a href="#buy">Buy</a>
         <a href="#featured">Featured</a>
         <a href="disclosure.html">Disclosure</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="disclaimer.html">Medical Disclaimer</a>
       </div>
     </div>
   </footer>
@@ -926,7 +941,11 @@
           }
           if (cfg.subtitle)         document.getElementById('offer-price-meta').textContent = cfg.subtitle;
           if (cfg.blurb)            document.getElementById('offer-blurb').textContent = cfg.blurb;
-          if (cfg.beacons_url)      document.getElementById('offer-btn').href = cfg.beacons_url;
+          if (cfg.beacons_url) {
+            document.getElementById('offer-btn').href = cfg.beacons_url;
+            var headerBtn = document.getElementById('header-buy-btn');
+            if (headerBtn) headerBtn.href = cfg.beacons_url;
+          }
           if (cfg.bundles_to_offer && cfg.bundles_to_offer.length) {
             document.getElementById('offer-bundles').innerHTML =
               cfg.bundles_to_offer.map(function (b) {
@@ -970,10 +989,15 @@
             ctaText = it.source ? 'Shop ' + esc(it.source) : 'Shop now';
           }
           var ctaClass = it.source === 'Amazon' ? 'card-cta card-cta-amazon' : 'card-cta';
+          var title = esc(it.title || '');
+          var blurb = esc(it.blurb || '');
           return [
             '<a class="product-card" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
               photo,
-              '<div class="card-deck">' + esc(it.blurb || it.title || '') + '</div>',
+              '<div class="card-text">',
+                '<div class="card-title">' + title + '</div>',
+                (blurb ? '<div class="card-blurb">' + blurb + '</div>' : ''),
+              '</div>',
               '<span class="' + ctaClass + '">' + ctaText + '</span>',
             '</a>'
           ].join('');

@@ -44,5 +44,14 @@
     "image": "bundle/product-5.jpeg",
     "url": "https://amzn.to/3SeAX0v",
     "layout": "grid"
+  },
+  {
+    "source": "Amazon",
+    "title": "Serene Herbs Exotic Soursop Bitters, 16 fl oz",
+    "blurb": "A bitter tincture taken before heavy meals. The kind of thing you reach for when you overdid it at lunch.",
+    "price": "$32",
+    "image": "bundle/product-6.jpeg",
+    "url": "https://amzn.to/4hUOyo5",
+    "layout": "grid"
   }
 ]

@@ -791,8 +791,17 @@
     .footer-inner {
       display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
     }
+    .footer-about { display: flex; flex-direction: column; gap: 4px; }
+    .footer-contact { color: var(--ink-muted); }
+    .footer-contact a { color: var(--ink-mid); margin-left: 0; }
+    .footer-contact a:hover { color: var(--ink); }
     .footer a { color: var(--ink-mid); margin-left: 18px; }
     .footer a:hover { color: var(--ink); }
+    @media (max-width: 640px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+      .footer-links a { margin-left: 0; }
+    }
 
   </style>
 </head>
@@ -886,14 +895,18 @@
 
 <footer class="footer">
     <div class="wrap footer-inner">
-      <div>QuickWellnessTips, a library of small practical guides.</div>
-      <div>
+      <div class="footer-about">
+        <div>QuickWellnessTips, a library of small practical guides.</div>
+        <div class="footer-contact">Contact us: <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a></div>
+      </div>
+      <div class="footer-links">
         <a href="#library">Library</a>
         <a href="#buy">Buy</a>
         <a href="#featured">Featured</a>
         <a href="disclosure.html">Disclosure</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="disclaimer.html">Medical Disclaimer</a>
+        <a href="terms.html">Terms of Service</a>
       </div>
     </div>
   </footer>

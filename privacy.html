@@ -79,10 +79,27 @@
       padding-bottom: 8px;
       border-bottom: 1px solid var(--rule);
     }
+    h3 {
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink-soft);
+      margin: 22px 0 10px;
+    }
     p { margin: 0 0 16px 0; }
     ul, ol { padding-left: 22px; margin: 0 0 16px 0; }
     li { margin-bottom: 8px; }
     strong { font-weight: 600; color: var(--ink); }
+    .toc {
+      background: #f7f8fa;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 0 0 36px 0;
+    }
+    .toc h2 { border: 0; margin: 0 0 10px 0; padding: 0; }
+    .toc ol { margin: 0; padding-left: 20px; columns: 1; }
+    .toc a { border: 0; }
     .back {
       display: inline-block;
       margin-top: 36px;
@@ -115,36 +132,127 @@
   <main>
     <div class="wrap">
       <h1>Privacy <em style="font-family:var(--serif); font-style:italic; color:var(--accent); font-weight:500;">policy</em></h1>
-      <p class="lede">A plain-English explanation of what information this site collects, why, and how it's used. Last updated August 2026.</p>
+      <p class="lede">A detailed explanation of what information this site collects, why, how it's used, and the rights you have over it. Last updated August 2026.</p>
 
-      <h2>What we collect</h2>
-      <p>This site is mostly static — reading it doesn't require an account and doesn't hand us any personal information. The only information we collect directly is what you choose to give us:</p>
+      <div class="toc">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#who-we-are">Who we are</a></li>
+          <li><a href="#scope">Scope of this policy</a></li>
+          <li><a href="#collect">Information we collect</a></li>
+          <li><a href="#cookies">Cookies and similar technologies</a></li>
+          <li><a href="#use">How we use your information</a></li>
+          <li><a href="#share">How we share your information</a></li>
+          <li><a href="#third-party">Third-party links and services</a></li>
+          <li><a href="#retention">Data retention</a></li>
+          <li><a href="#security">Data security</a></li>
+          <li><a href="#rights">Your privacy rights</a></li>
+          <li><a href="#california">California residents (CCPA/CPRA)</a></li>
+          <li><a href="#gdpr">European, UK, and EEA visitors (GDPR)</a></li>
+          <li><a href="#other-states">Other U.S. state privacy rights</a></li>
+          <li><a href="#children">Children's privacy</a></li>
+          <li><a href="#international">International users and data transfers</a></li>
+          <li><a href="#health">A note on health information</a></li>
+          <li><a href="#marketing">Marketing communications</a></li>
+          <li><a href="#automated">Automated decision-making</a></li>
+          <li><a href="#changes">Changes to this policy</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ol>
+      </div>
+
+      <h2 id="who-we-are">Who we are</h2>
+      <p>QuickWellnessTips ("QuickWellnessTips," "we," "us," or "our") publishes an e-book library and related wellness content at quickwellnesstips.com (the "Site"). QuickWellnessTips is operated from the state of Maryland, United States, and this policy is written with that as our home jurisdiction, while still trying to honor the rights of visitors from other states and countries as described below.</p>
+
+      <h2 id="scope">Scope of this policy</h2>
+      <p>This Privacy Policy explains how we collect, use, disclose, and safeguard information when you visit the Site, read our content, sign up for our newsletter, purchase our e-book library, click through to a featured product, or otherwise interact with us. It applies to information collected through the Site and through direct correspondence (such as email). It does not apply to information collected by third-party sites we link to, including Amazon, TikTok Shop, or our checkout and newsletter provider, Beacons — those services have their own privacy policies, and we encourage you to read them.</p>
+      <p>By using the Site, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, your choice is not to use the Site. This policy should be read together with our <a href="terms.html">Terms of Service</a>, our <a href="disclosure.html">Affiliate Disclosure</a>, and our <a href="disclaimer.html">Medical Disclaimer</a>.</p>
+
+      <h2 id="collect">Information we collect</h2>
+      <p>The Site is mostly static — reading it doesn't require an account and doesn't hand us any personal information by default. We collect information in three general ways:</p>
+
+      <h3>Information you provide directly</h3>
       <ul>
-        <li><strong>Newsletter signup.</strong> If you subscribe, we collect your email address so we can send the newsletter. Signups are processed by Beacons, a third-party platform — see their own privacy policy for how they handle that data.</li>
-        <li><strong>Purchases.</strong> If you buy the book bundle, checkout is handled entirely by Beacons. We don't receive or store your payment details, card number, or billing address — that transaction happens on their platform, under their privacy policy.</li>
-        <li><strong>Email you send us.</strong> If you email us directly, we keep that correspondence to respond to you and to improve the site.</li>
+        <li><strong>Newsletter signup.</strong> If you subscribe, we collect your email address (and, if you choose to provide it, your name) so we can send the newsletter. Signups are processed by Beacons, a third-party platform — see their own privacy policy for how they handle that data on their end.</li>
+        <li><strong>Purchases.</strong> If you buy the book bundle, checkout is handled entirely by Beacons. We don't receive or store your full payment details, card number, CVV, or billing address — that transaction happens on Beacons' platform, under Beacons' own privacy and security practices. We may receive limited order confirmation details (such as your email address and that a purchase occurred) so we can fulfill access to the digital product and provide customer support.</li>
+        <li><strong>Correspondence.</strong> If you email us directly, we keep that correspondence — including your email address, name if provided, and the content of your message — to respond to you, resolve your question, and improve the Site.</li>
+        <li><strong>Comments, testimonials, or feedback.</strong> If we ever add a way for you to leave a comment, review, or testimonial, anything you submit through that feature (including any name or identifying detail you choose to include) may be collected and, if you consent, displayed publicly.</li>
       </ul>
 
-      <h2>Cookies and tracking</h2>
-      <p>We don't run advertising trackers or tracking pixels on this site. Your web browser and hosting provider may log basic technical information (like IP address and browser type) automatically as part of normal web traffic — this is standard server behavior, not something we set up to track you individually.</p>
+      <h3>Information collected automatically</h3>
+      <p>Like most websites, our hosting infrastructure automatically logs some technical information whenever you visit, as a normal part of serving web pages. This can include your IP address, browser type and version, operating system, device type, referring and exit pages, the pages you viewed and how long you spent on them, timestamps, and a general, non-precise geographic region inferred from your IP address. This is standard server behavior rather than something we've built to track you individually, and we do not currently combine it with your identity.</p>
 
-      <h2>Third-party links</h2>
-      <p>This site links out to Amazon, TikTok Shop, and Beacons for purchases, and to other sites we reference. Those sites have their own privacy policies, and we're not responsible for how they handle your information once you leave our site. Some of those links are affiliate links — see our <a href="disclosure.html">affiliate disclosure</a> for details.</p>
+      <h3>Information from third parties</h3>
+      <p>Beacons (our newsletter and checkout provider) may share limited account or transaction information with us, such as your email address, subscription status, and purchase confirmation. We do not receive personal data back from Amazon or TikTok Shop when you click an affiliate link — once you leave our Site for theirs, your interaction is governed entirely by their own privacy practices.</p>
 
-      <h2>How we use what we collect</h2>
-      <p>We use your email address only to send the newsletter you signed up for, and to respond if you write to us. We don't sell, rent, or trade your information to anyone.</p>
+      <h2 id="cookies">Cookies and similar technologies</h2>
+      <p>Cookies are small text files a website can place on your device to remember information. We don't run advertising trackers, retargeting pixels, or third-party ad networks on this Site. That said, a handful of technologies used to build and serve the page can set or read limited data:</p>
+      <ul>
+        <li><strong>Fonts.</strong> We load typefaces from Google Fonts, which may cause your browser to make a request to Google's servers and, in doing so, share your IP address with Google under Google's own privacy policy.</li>
+        <li><strong>Hosting.</strong> Our hosting provider (GitHub Pages) and any content-delivery network in front of it may log connection-level data (like IP address) as a routine part of delivering the page to your browser.</li>
+        <li><strong>Embedded or linked social content.</strong> Links to our Instagram, TikTok, and Facebook pages take you to those platforms directly; we don't embed tracking widgets from them on this Site.</li>
+      </ul>
+      <p>Most browsers let you block or delete cookies through their settings, and you can use browser extensions or privacy-focused browser modes to further limit tracking. Because we don't rely on cookies for core functionality, blocking them shouldn't break anything on the Site. We do not currently respond to "Do Not Track" browser signals in a customized way, as there isn't yet an industry-standard way to interpret them.</p>
 
-      <h2>Your choices</h2>
-      <p>You can unsubscribe from the newsletter at any time using the unsubscribe link in any email we send. To ask us to delete correspondence you've sent us, email <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a>.</p>
+      <h2 id="use">How we use your information</h2>
+      <p>We use the information described above for purposes that include:</p>
+      <ul>
+        <li>Sending the newsletter you signed up for, and any transactional messages related to a purchase (such as confirming access to your e-book download).</li>
+        <li>Responding to your emails, questions, and customer-support requests.</li>
+        <li>Operating, maintaining, securing, and improving the Site, including diagnosing technical problems and understanding, in aggregate, how the Site is used.</li>
+        <li>Complying with legal obligations, enforcing our <a href="terms.html">Terms of Service</a>, and protecting the rights, property, and safety of QuickWellnessTips, our visitors, and the public.</li>
+      </ul>
+      <p>Where applicable law requires a legal basis for processing, we rely on your consent (for example, when you sign up for the newsletter), the necessity of processing to perform a contract with you (for example, to deliver a purchased e-book), and our legitimate interests in operating and improving a small publishing business, balanced against your rights.</p>
 
-      <h2>Children's privacy</h2>
-      <p>This site is not directed at children under 13, and we don't knowingly collect information from children.</p>
+      <h2 id="share">How we share your information</h2>
+      <p>We do not sell your personal information, and we do not share it with third parties for their own independent marketing purposes. We do share information in these limited circumstances:</p>
+      <ul>
+        <li><strong>Service providers.</strong> With vendors who perform services on our behalf, such as Beacons (newsletter delivery and checkout), GitHub Pages (site hosting), and Google Fonts (typefaces). These providers only receive the information necessary to perform their function and are subject to their own privacy obligations.</li>
+        <li><strong>Legal requirements.</strong> If required to do so by law, subpoena, or other legal process, or if we believe in good faith that disclosure is necessary to protect our rights, your safety, or the safety of others, investigate fraud, or respond to a government request.</li>
+        <li><strong>Business transfers.</strong> If QuickWellnessTips is involved in a merger, acquisition, financing, reorganization, bankruptcy, or sale of assets, your information may be transferred as part of that transaction. We will make reasonable efforts to notify you of any such change via a notice on the Site.</li>
+        <li><strong>With your consent.</strong> In any other situation, only with your explicit permission.</li>
+      </ul>
 
-      <h2>Changes to this policy</h2>
-      <p>If this policy changes, we'll update this page and the "last updated" date above.</p>
+      <h2 id="third-party">Third-party links and services</h2>
+      <p>This Site links out to Amazon, TikTok Shop, and Beacons for purchases, to our social media pages, and to other sites we reference in our content. Those sites have their own privacy policies and terms, and we are not responsible for how they collect, use, or protect your information once you leave our Site. Some of those links are affiliate links — see our <a href="disclosure.html">affiliate disclosure</a> for details on how that works and how we're compensated.</p>
 
-      <h2>Questions</h2>
-      <p>Email us at <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a> with any privacy questions.</p>
+      <h2 id="retention">Data retention</h2>
+      <p>We keep the information we collect only as long as reasonably necessary for the purposes described in this policy, to comply with our legal obligations, resolve disputes, and enforce our agreements. Newsletter and purchase records are generally retained by Beacons per their own retention practices and for as long as you remain subscribed or as needed to support your purchase. Direct correspondence with us is generally kept for as long as needed to resolve your inquiry and for a reasonable period afterward for record-keeping, after which it may be deleted.</p>
+
+      <h2 id="security">Data security</h2>
+      <p>We use reasonable administrative and technical measures designed to protect information from unauthorized access, use, alteration, or disclosure, and we rely on established, reputable third-party providers (Beacons, GitHub Pages) for functions like payment processing and hosting, which maintain their own security programs. That said, no method of transmission over the internet or method of electronic storage is 100% secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>
+
+      <h2 id="rights">Your privacy rights</h2>
+      <p>Depending on where you live, you may have rights over the personal information we hold about you, which can include the right to know what information we've collected, to correct inaccurate information, to request deletion, to object to or restrict certain processing, and to withdraw consent (such as unsubscribing from the newsletter) at any time. You can unsubscribe from the newsletter using the link in any email we send. To exercise any other right, or to ask us to delete correspondence you've sent us, email <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a>. We will respond within a reasonable time and may need to verify your identity before fulfilling certain requests.</p>
+
+      <h2 id="california">California residents (CCPA/CPRA)</h2>
+      <p>If you are a California resident, the California Consumer Privacy Act, as amended by the California Privacy Rights Act, gives you specific rights, including the right to know the categories and specific pieces of personal information we've collected about you, the right to request deletion of personal information we hold, the right to correct inaccurate personal information, the right to opt out of the "sale" or "sharing" of personal information (we do not sell or share personal information for cross-context behavioral advertising), and the right to non-discrimination for exercising any of these rights. The categories of personal information we collect generally fall under identifiers (such as email address) and internet or electronic network activity (such as IP address and browsing behavior on the Site), collected for the purposes described in this policy. To exercise a CCPA/CPRA right, email <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a>.</p>
+
+      <h2 id="gdpr">European, UK, and EEA visitors (GDPR)</h2>
+      <p>If you are located in the European Economic Area, the United Kingdom, or Switzerland, you have rights under the General Data Protection Regulation and equivalent UK data protection law, including the right to access your personal data, request rectification or erasure, restrict or object to processing, request data portability, and lodge a complaint with your local data protection supervisory authority. Where we rely on your consent to process personal data (such as newsletter signup), you may withdraw that consent at any time without affecting the lawfulness of processing before its withdrawal. Because our service providers may process data outside your home country, including in the United States, such transfers are made on the basis of the provider's own compliance mechanisms (such as standard contractual clauses), where applicable.</p>
+
+      <h2 id="other-states">Other U.S. state privacy rights</h2>
+      <p>A growing number of U.S. states — including Virginia, Colorado, Connecticut, Utah, and others — have enacted their own comprehensive privacy laws that provide residents with rights broadly similar to those described above (access, correction, deletion, and opt-out of certain processing). If you are a resident of one of these states, we honor requests made under your applicable state law to the same extent described in this policy. Nevada residents also have the statutory right to opt out of the sale of certain "covered information"; we do not currently sell such information, but you may still submit a request to <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a> to be placed on our internal do-not-sell list as a precaution.</p>
+
+      <h2 id="children">Children's privacy</h2>
+      <p>This Site is not directed at children under 13 (or under 16 where a higher age threshold applies under local law), and we do not knowingly collect personal information from children. If we learn that we have inadvertently collected personal information from a child in violation of applicable law, we will take steps to delete that information as quickly as reasonably possible. If you believe a child has provided us with personal information, please contact us at <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a>.</p>
+
+      <h2 id="international">International users and data transfers</h2>
+      <p>The Site is hosted in the United States, and any information we or our service providers collect may be stored and processed in the United States or in other countries where our providers operate. By using the Site, users outside the United States acknowledge that their information may be transferred to, stored, and processed in a country that may have different data protection laws than their home country.</p>
+
+      <h2 id="health">A note on health information</h2>
+      <p>QuickWellnessTips publishes general wellness content and is not a healthcare provider. We do not operate any intake form, quiz, or portal designed to collect health information about you, and we ask that you not include sensitive health details in newsletter signups or general correspondence beyond what's necessary to answer your question. If you voluntarily share health-related information with us by email (for example, as context for a support request), we treat it as confidential correspondence used only to help you, and we do not use it for advertising or share it with third parties for marketing purposes. See our <a href="disclaimer.html">Medical Disclaimer</a> for more on the informational nature of our content.</p>
+
+      <h2 id="marketing">Marketing communications</h2>
+      <p>If you subscribe to our newsletter, we will send you emails about new content, wellness tips, and occasional promotions related to our e-book library or featured products. Every email includes an unsubscribe link, and you can opt out at any time at no cost. We will not add you to the newsletter without your affirmative signup.</p>
+
+      <h2 id="automated">Automated decision-making</h2>
+      <p>We do not use your personal information to make any automated decision that produces legal or similarly significant effects concerning you, and we do not build individual advertising profiles from your activity on the Site.</p>
+
+      <h2 id="changes">Changes to this policy</h2>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, our services, or applicable law. When we do, we will revise the "last updated" date at the top of this page, and for material changes we will make reasonable efforts to provide more prominent notice, such as a notice on the homepage. We encourage you to review this page periodically.</p>
+
+      <h2 id="contact">Contact us</h2>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your information, email us at <a href="mailto:info@quickwellnesstips.com">info@quickwellnesstips.com</a>. We read everything and will do our best to respond promptly.</p>
 
       <a class="back" href="index.html">&larr; Back to the library</a>
     </div>
@@ -153,7 +261,8 @@
   <footer>
     QuickWellnessTips, last updated August 2026. &middot;
     <a href="disclosure.html">Affiliate Disclosure</a> &middot;
-    <a href="disclaimer.html">Medical Disclaimer</a>
+    <a href="disclaimer.html">Medical Disclaimer</a> &middot;
+    <a href="terms.html">Terms of Service</a>
   </footer>
 </body>
 </html>

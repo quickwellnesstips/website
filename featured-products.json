@@ -1,37 +1,5 @@
 [
   {
-    "source": "Beam",
-    "title": "Glow",
-    "blurb": "Your hormones in balance.",
-    "image": "bundle/beam-1.jpeg",
-    "url": "https://beambeam.com/products/glow",
-    "layout": "grid"
-  },
-  {
-    "source": "Beam",
-    "title": "Biotic",
-    "blurb": "Your daily gut reset.",
-    "image": "bundle/beam-2.jpeg",
-    "url": "https://beambeam.com/products/biotic",
-    "layout": "grid"
-  },
-  {
-    "source": "Beam",
-    "title": "Dream",
-    "blurb": "Your best night's sleep.",
-    "image": "bundle/beam-3.jpeg",
-    "url": "https://beambeam.com/products/dream",
-    "layout": "grid"
-  },
-  {
-    "source": "Beam",
-    "title": "Kids",
-    "blurb": "Your kids' daily greens.",
-    "image": "bundle/beam-4.jpeg",
-    "url": "https://beambeam.com/products/kids",
-    "layout": "grid"
-  },
-  {
     "source": "Amazon",
     "title": "Dynamic Health Concentrate, 32 fl oz",
     "blurb": "The one I keep on the counter when I want a quick brew of sour cherry concentrate stirred into water. Tart, not too sweet.",

@@ -38,7 +38,7 @@
     "price": "$22",
     "image": "bundle/product-1.jpeg",
     "url": "https://amzn.to/4y5lor1",
-    "layout": "row"
+    "layout": "grid"
   },
   {
     "source": "Amazon",
@@ -47,7 +47,7 @@
     "price": "$24",
     "image": "bundle/product-2.jpeg",
     "url": "https://amzn.to/4y6FAJd",
-    "layout": "row"
+    "layout": "grid"
   },
   {
     "source": "Amazon",
@@ -56,7 +56,7 @@
     "price": "$28",
     "image": "bundle/product-3.jpeg",
     "url": "https://amzn.to/4x05gGp",
-    "layout": "row"
+    "layout": "grid"
   },
   {
     "source": "Amazon",
@@ -65,7 +65,7 @@
     "price": "$26",
     "image": "bundle/product-4.jpeg",
     "url": "https://amzn.to/4y6FJfJ",
-    "layout": "row"
+    "layout": "grid"
   },
   {
     "source": "Amazon",
@@ -75,7 +75,7 @@
     "badge": "Editor pick",
     "image": "bundle/product-5.jpeg",
     "url": "https://amzn.to/3SeAX0v",
-    "layout": "row"
+    "layout": "grid"
   },
   {
     "source": "Amazon",
@@ -84,7 +84,7 @@
     "price": "$32",
     "image": "bundle/product-6.jpeg",
     "url": "https://amzn.to/4hUOyo5",
-    "layout": "row"
+    "layout": "grid"
   },
   {
     "source": "Amazon",
@@ -93,6 +93,6 @@
     "price": "$28",
     "image": "bundle/product-placeholder-7.jpeg",
     "url": "https://amzn.to/4xj8yWa",
-    "layout": "row"
+    "layout": "grid"
   }
 ]

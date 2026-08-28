@@ -178,24 +178,11 @@
     }
     .book-tile .cover img { width: 100%; height: 100%; object-fit: cover; }
     .book-tile .cover-wrap { position: relative; }
-    .book-tile .seq {
-      position: absolute;
-      top: 6px; left: 6px;
-      width: 22px; height: 22px;
-      background: rgba(0,0,0,0.78);
-      color: #fff;
-      font-family: var(--sans);
-      font-size: 10.5px; font-weight: 700;
-      letter-spacing: 0.04em;
-      border-radius: 999px;
-      display: flex; align-items: center; justify-content: center;
-      backdrop-filter: blur(6px);
-    }
     /* "Sample" tag — communicates to visitors this is a preview, not the
        full book. Reinforces the buy-now CTA in the right column. */
     .book-tile .sample-tag {
       position: absolute;
-      top: 8px; right: 8px;
+      top: 16px; right: 8px;
       padding: 3px 8px;
       background: var(--accent);
       color: #fff;
@@ -906,7 +893,6 @@
           '<a class="book-tile" href="sample.html?slug=' + esc(b.slug) + '" aria-label="Read sample of ' + esc(b.title) + '">',
             '<div class="cover-wrap">',
               '<div class="cover"><img src="bundle/' + b.slug + '-cover.jpeg" alt="' + esc(b.title) + '"></div>',
-              '<div class="seq">' + b.n + '</div>',
               '<div class="sample-tag">Sample</div>',
             '</div>',
             '<div class="meta">',

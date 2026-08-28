@@ -1,47 +1,62 @@
 [
   {
     "source": "Amazon",
-    "title": "Insulated Water Bottle, 32oz",
-    "blurb": "The one I refill three times a day. Handle makes it easy to carry.",
-    "price": "$28",
-    "badge": "Top pick",
-    "image": "bundle/product-placeholder-1.jpeg",
-    "url": "https://amzn.to/4y5lor1"
-  },
-  {
-    "source": "Amazon",
-    "title": "Blackout Curtains",
-    "blurb": "For the week the light wakes you up at 5:30 and you can't get back to sleep.",
-    "price": "$32",
-    "badge": "",
-    "image": "bundle/product-placeholder-2.jpeg",
-    "url": "https://amzn.to/4y6FAJd"
-  },
-  {
-    "source": "Amazon",
-    "title": "Resistance Bands, Set of 5",
-    "blurb": "Smallest version of strength work for the day the gym is closed.",
-    "price": "$24",
-    "badge": "",
-    "image": "bundle/product-placeholder-3.jpeg",
-    "url": "https://amzn.to/4x05gGp"
-  },
-  {
-    "source": "Amazon",
-    "title": "Blue Light Glasses",
-    "blurb": "For the after-sundown hours when the brain does not want to come down.",
+    "title": "Dynamic Health Concentrate, 32 fl oz",
+    "blurb": "The one I keep on the counter when I want a quick brew of sour cherry concentrate stirred into water. Tart, not too sweet.",
     "price": "$22",
     "badge": "",
-    "image": "bundle/product-placeholder-4.jpeg",
-    "url": "https://amzn.to/4y6FJfJ"
+    "image": "bundle/product-placeholder-1.jpeg",
+    "url": "https://amzn.to/4y5lor1",
+    "_note": "Replace with real image. Dynamic Health Concentrate (B007RC6J72) — verified by ASIN lookup."
   },
   {
     "source": "Amazon",
-    "title": "Sleep Mask, Contoured",
-    "blurb": "For the kind of morning you want to sleep through.",
-    "price": "$18",
-    "badge": "New",
+    "title": "Goli Zero Sugar Ashwagandha Gummies, 60 ct",
+    "blurb": "Low-sugar ashwagandha gummies for the days you need to slow down a notch. Reasonable dose, no aftertaste.",
+    "price": "$24",
+    "badge": "",
+    "image": "bundle/product-placeholder-2.jpeg",
+    "url": "https://amzn.to/4y6FAJd",
+    "_note": "Replace with real image. Goli Zero Sugar Trio (B0FNPW73LL) — verified by ASIN lookup."
+  },
+  {
+    "source": "Amazon",
+    "title": "Himalayan Shilajit Capsules, 60 ct",
+    "blurb": "For the kind of morning where you need a low-key boost. A small turmeric-and-shilajit blend taken with breakfast.",
+    "price": "$28",
+    "badge": "",
+    "image": "bundle/product-placeholder-3.jpeg",
+    "url": "https://amzn.to/4x05gGp",
+    "_note": "Replace with real image. Himalayan Shilajit (B0FY3Z7HL1) — verified by ASIN lookup."
+  },
+  {
+    "source": "Amazon",
+    "title": "Neuro Memory Focus Gum, Mint, 60 pieces",
+    "blurb": "Chew a piece when the focus window starts to slip after lunch. Tastes like gum, not a vitamin.",
+    "price": "$26",
+    "badge": "",
+    "image": "bundle/product-placeholder-4.jpeg",
+    "url": "https://amzn.to/4y6FJfJ",
+    "_note": "Replace with real image. Neuro Memory Focus Gum (B0DHHBHZHF) — verified by ASIN lookup."
+  },
+  {
+    "source": "Amazon",
+    "title": "humanN Heart Chews, Pomegranate, 60 ct",
+    "blurb": "Chewable beet-root + CoQ10 for the day after a long night. Tastes like candy, not a supplement.",
+    "price": "$30",
+    "badge": "Editor pick",
     "image": "bundle/product-placeholder-5.jpeg",
-    "url": "https://amzn.to/3SeAX0v"
+    "url": "https://amzn.to/3SeAX0v",
+    "_note": "Replace with real image. humanN Heart Chews Pomegranate (B07SRK1F3Y) — verified by ASIN lookup."
+  },
+  {
+    "source": "Amazon",
+    "title": "Soursop Bitters Liquid, 8 fl oz",
+    "blurb": "A bitter tincture taken before heavy meals. The kind of thing you reach for when you overdid it at lunch.",
+    "price": "$32",
+    "badge": "",
+    "image": "bundle/product-placeholder-6.jpeg",
+    "url": "https://amzn.to/4hUOyo5",
+    "_note": "Replace with real image. Soursop Bitters (B0CYV4FCJS) — verified by ASIN lookup."
   }
 ]

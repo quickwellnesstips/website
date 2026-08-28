@@ -326,15 +326,16 @@
     }
 
     /* ============================================================
-       FEATURED PRODUCTS (Amazon / TikTok Shop affiliate)
+       FEATURED PRODUCTS — horizontal scrolling shopping rail
+       (Amazon-style "Shop this section" — a row you can drag/scroll)
        ============================================================ */
     .featured-section {
-      padding: 80px 0;
+      padding: 72px 0 80px;
       background: #fafafa;
     }
     .section-head {
       max-width: 720px;
-      margin: 0 auto 48px;
+      margin: 0 auto 36px;
       text-align: center;
     }
     .section-eyebrow {
@@ -371,14 +372,61 @@
       margin: 0;
     }
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      max-width: 1100px;
-      margin: 0 auto;
+    /* The rail container — overflow auto with snap, plus scrollbar styling */
+    .rail-toolbar {
+      max-width: 1180px;
+      margin: 0 auto 16px;
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--sans);
+      font-size: 12.5px;
+      color: var(--ink-muted);
     }
+    .rail-toolbar .scroll-hint {
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .rail-toolbar .arrows {
+      display: inline-flex; gap: 4px;
+    }
+    .rail-toolbar .arrow-btn {
+      width: 36px; height: 36px;
+      border: 1px solid var(--rule-strong);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 18px;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .rail-toolbar .arrow-btn:hover { background: var(--accent-tint); border-color: var(--accent); color: var(--accent-deep); }
+    .rail-toolbar .arrow-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* The horizontal rail of product cards */
+    .product-rail {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 36px;
+      padding: 8px 36px 24px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--rule-strong) transparent;
+    }
+    .product-rail::-webkit-scrollbar { height: 8px; }
+    .product-rail::-webkit-scrollbar-track { background: transparent; }
+    .product-rail::-webkit-scrollbar-thumb {
+      background: var(--rule-strong);
+      border-radius: 4px;
+    }
+    .product-rail::-webkit-scrollbar-thumb:hover { background: var(--ink-muted); }
+
+    /* Per-card — wider so the title + thumbnail read at a glance */
     .product-card {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
       background: #ffffff;
       border: 1px solid var(--rule);
       border-radius: 14px;
@@ -394,52 +442,81 @@
       box-shadow: 0 12px 32px -10px rgba(0,0,0,0.10);
     }
     .product-thumb {
-      aspect-ratio: 4/3;
+      aspect-ratio: 1/1;
       background: #f5f5f5;
       overflow: hidden;
       display: flex; align-items: center; justify-content: center;
       color: var(--ink-muted);
       font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+      position: relative;
     }
     .product-thumb img { width: 100%; height: 100%; object-fit: cover; }
     .product-thumb.empty {
       background: linear-gradient(135deg, var(--accent-tint) 0%, #f0f7f9 100%);
     }
-    .product-body { padding: 20px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+    /* Optional "Hot" / "New" badge upper-right corner */
+    .product-thumb .badge {
+      position: absolute;
+      top: 8px; right: 8px;
+      background: var(--ink);
+      color: #ffffff;
+      font-family: var(--sans);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .product-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
     .product-source {
       font-family: var(--sans);
-      font-size: 11px; font-weight: 700;
+      font-size: 10.5px; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .product-title {
       font-family: var(--serif);
-      font-size: 19px; font-weight: 600; line-height: 1.25;
+      font-size: 17px; font-weight: 600; line-height: 1.25;
       letter-spacing: -0.01em;
       color: var(--ink);
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
+      /* Show at most 2 lines so cards align */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .product-blurb {
       font-family: var(--sans);
-      font-size: 13.5px; line-height: 1.55;
+      font-size: 12.5px; line-height: 1.5;
       color: var(--ink-mid);
-      margin: 0 0 16px 0;
+      margin: 0 0 12px 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
       flex: 1;
+    }
+    .product-price {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      margin: 0 0 8px 0;
     }
     .product-link {
       font-family: var(--sans);
-      font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em;
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em;
       color: var(--accent);
-      display: inline-flex; align-items: center; gap: 6px;
-      border-top: 1px solid var(--rule);
-      padding-top: 14px;
+      display: inline-flex; align-items: center; gap: 4px;
     }
     .product-link::after { content: "→"; transition: transform .2s ease; }
     .product-card:hover .product-link::after { transform: translateX(3px); }
 
     .product-empty {
-      grid-column: 1 / -1;
+      flex: 1; min-width: 100%;
       text-align: center;
       padding: 60px 20px;
       background: #ffffff;
@@ -474,6 +551,12 @@
     .disclosure strong { font-weight: 600; color: var(--ink); }
     .disclosure a { color: var(--accent); border-bottom: 1px solid currentColor; }
 
+    @media (max-width: 980px) {
+      .featured-section { padding: 48px 0 56px; }
+      /* On mobile the rail scrolls horizontally (touch) instead of reflowing */
+      .product-card { flex: 0 0 200px; }
+    }
+
     /* ----- FOOTER ----- */
     .footer {
       padding: 36px 0;
@@ -490,14 +573,9 @@
     .footer a:hover { color: var(--ink); }
 
     @media (max-width: 980px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-      .buy-block { position: static; }
-      .bookshelf { grid-template-columns: repeat(3, 1fr); gap: 18px 14px; }
-      .product-grid { grid-template-columns: 1fr; }
-      .hero { padding: 36px 0 48px; }
-      section { padding: 56px 0; }
-      .nav { gap: 16px; }
-      .nav .link { display: none; }
+      .featured-section { padding: 48px 0 56px; }
+      /* On mobile the rail scrolls horizontally (touch) instead of reflowing */
+      .product-card { flex: 0 0 200px; }
     }
 
     .buy-pill {
@@ -567,7 +645,15 @@
         <p class="section-deck">A curated shelf of physical things the books mention. When you buy through these links, we earn a small commission at no cost to you.</p>
       </div>
 
-      <div class="product-grid" id="product-grid"></div>
+      <div class="rail-toolbar">
+        <span class="scroll-hint">Scroll &rarr;</span>
+        <span class="arrows">
+          <button type="button" class="arrow-btn" id="rail-prev" aria-label="Scroll left">&larr;</button>
+          <button type="button" class="arrow-btn" id="rail-next" aria-label="Scroll right">&rarr;</button>
+        </span>
+      </div>
+
+      <div class="product-rail" id="product-rail"></div>
 
       <div class="disclosure">
         <strong>Affiliate disclosure.</strong> QuickWellnessTips is a participant in the Amazon Services LLC Associates Program and other affiliate programs. When you buy through the product links on this page, we may earn a small commission. We only feature products we genuinely use and recommend. <a href="disclosure.html">Read our full disclosure policy</a>.
@@ -668,10 +754,20 @@
     })();
 
     /* =============================================================
-       BELOW: Featured products (populate from featured-products.json)
+       BELOW: Featured products — horizontal scrolling rail
+       Populates from featured-products.json.
+       Schema:
+         [{"source":"Amazon"|"TikTok Shop",
+           "title":"...", "blurb":"...",
+           "price":"$24.99", "badge":"Hot",  // optional
+           "image":"<path>|"", "url":"..."}, ...]
        ============================================================= */
     (function () {
-      var grid = document.getElementById('product-grid');
+      var rail = document.getElementById('product-rail');
+      var prevBtn = document.getElementById('rail-prev');
+      var nextBtn = document.getElementById('rail-next');
+      var SCROLL_BY = 540;
+
       fetch('featured-products.json', {cache: 'no-store'})
         .then(function (r) { return r.ok ? r.json() : []; })
         .then(render)
@@ -679,17 +775,24 @@
 
       function render(items) {
         if (!items || !items.length) {
-          grid.innerHTML = [
+          rail.innerHTML = [
             '<div class="product-empty">',
               'No products yet. Add items to <code>featured-products.json</code> in the site root, then refresh.',
             '</div>'
           ].join('');
+          if (prevBtn) prevBtn.disabled = true;
+          if (nextBtn) nextBtn.disabled = true;
           return;
         }
-        grid.innerHTML = items.map(function (it) {
+        rail.innerHTML = items.map(function (it) {
           var thumb = it.image
-            ? '<div class="product-thumb"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '"></div>'
+            ? '<div class="product-thumb"><img src="' + esc(it.image) + '" alt="' + esc(it.title) + '">'
+              + (it.badge ? '<div class="badge">' + esc(it.badge) + '</div>' : '')
+              + '</div>'
             : '<div class="product-thumb empty">No Image</div>';
+          var priceHtml = it.price
+            ? '<div class="product-price">' + esc(it.price) + '</div>'
+            : '';
           return [
             '<a class="product-card" href="' + esc(it.url || '#') + '" target="_blank" rel="nofollow noopener sponsored">',
               thumb,
@@ -697,11 +800,34 @@
                 '<div class="product-source">' + esc(it.source || 'Pick') + '</div>',
                 '<h3 class="product-title">' + esc(it.title || 'Untitled') + '</h3>',
                 '<p class="product-blurb">' + esc(it.blurb || '') + '</p>',
-                '<span class="product-link">View on ' + esc(it.source || 'Amazon') + '</span>',
+                priceHtml,
+                '<span class="product-link">View on ' + esc(it.source || 'store') + '</span>',
               '</div>',
             '</a>'
           ].join('');
         }).join('');
+
+        // Wire the prev / next buttons to scroll the rail
+        function updateArrows() {
+          if (!prevBtn || !nextBtn) return;
+          var maxScroll = rail.scrollWidth - rail.clientWidth;
+          prevBtn.disabled = rail.scrollLeft <= 5;
+          nextBtn.disabled = rail.scrollLeft >= maxScroll - 5;
+        }
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function () {
+            rail.scrollBy({left: -SCROLL_BY, behavior: 'smooth'});
+          });
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function () {
+            rail.scrollBy({left: SCROLL_BY, behavior: 'smooth'});
+          });
+        }
+        rail.addEventListener('scroll', updateArrows, {passive: true});
+        window.addEventListener('resize', updateArrows);
+        // Wait for layout, then set initial state
+        setTimeout(updateArrows, 50);
       }
     })();
 
